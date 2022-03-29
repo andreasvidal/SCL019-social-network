@@ -57,11 +57,23 @@ export const readDataPost = () => {
             })
         })
     });
+<<<<<<< HEAD
     //printComments(CommentBox);
     return CommentBox;
     
 }
 console.log(CommentBox)
+=======
+    return CommentBox
+};
+
+export const postDelete = async(id) => {
+    await deleteDoc(doc(db, 'posts', id));
+    console.log(await deleteDoc);
+};
+
+
+>>>>>>> 9b9f4460f3a239ffd32803bc1e7960119e73cfa1
 
 // implementacion de firebase en archivo post
 
