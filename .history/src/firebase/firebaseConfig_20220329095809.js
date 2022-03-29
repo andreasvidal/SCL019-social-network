@@ -39,25 +39,21 @@ export const createPost = async(comment) => { // Add a new document with a gener
     const userId = auth.currentUser.uid;
     const likes = [];
     const likesCounter = 0;*/
-    await addDoc(collection(db, "post"), { comment }); //guardamos la coleccion post 
+    await addDoc(collection(db, "post"), { comment, date, name, userId, likes, likesCounter }); //guardamos la coleccion post 
 };
+console.log("Document written with ID: ", createPost.id);
 // Leer datos de post
 export const readDataPost = () => {
     const q = query(collection(db, "post"), orderBy("date", "desc"));
-    onSnapshot(q, (querySnapshot) => { //onSnapshot escucha los elementos del documento
-        const CommentBox = [];
-        querySnapshot.forEach((doc) => { //QuerySnapshot accede a los objetos que llama de doc por medio del array
+
+    onSnapshot(q, (querySnapshot) => {
+        const commentBox = [];
+        querySnapshot.forEach((doc) => {
             console.log("documentos", doc)
-            CommentBox.push({
-                id: doc.id,
-                datepost: Date.now(),
-                data: doc.data(),
-                likesCounter: 0,
-                likes: []
-            })
         })
+
     });
-    return CommentBoxgit
+
 }
 
 

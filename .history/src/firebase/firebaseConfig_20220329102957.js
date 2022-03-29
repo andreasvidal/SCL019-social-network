@@ -45,10 +45,10 @@ export const createPost = async(comment) => { // Add a new document with a gener
 export const readDataPost = () => {
     const q = query(collection(db, "post"), orderBy("date", "desc"));
     onSnapshot(q, (querySnapshot) => { //onSnapshot escucha los elementos del documento
-        const CommentBox = [];
+        const post = [];
         querySnapshot.forEach((doc) => { //QuerySnapshot accede a los objetos que llama de doc por medio del array
             console.log("documentos", doc)
-            CommentBox.push({
+            post.push({
                 id: doc.id,
                 datepost: Date.now(),
                 data: doc.data(),
@@ -57,7 +57,7 @@ export const readDataPost = () => {
             })
         })
     });
-    return CommentBoxgit
+
 }
 
 

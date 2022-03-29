@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- load all Font Awesome styles + include all v5 backwards compatibility by default -->
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c52311aa4d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+    <title>BarterBook</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="main.js"></script>
+    <main>
+        <div id='addElement'>
+            <form id="formPost" class="formPost">
+                <label for="textTitle" class="textTitle">Title of the book </label>
+                <input type="text" class="textTitle" id="textTitle" required>
+                <br>
+                <label for="DescrpTitle" class="descrpTitle" required> Descripción: </label>
+                <textarea name="textarea" id="textarea" class="textarea" cols="30" rows="10">Write a comment...</textarea>
+                <div class="btn-addPost">
+                    <button type="submint" id="addPost" class="btn-add"><i class="fa-solid fa-circle-plus"></i>Add</button>
+                </div>
+            </form>
+        </div>
+        <div class="containerPostAdd" id="containerPostAdd"></div>
+        <div>
+            <h3></h3>
+            <p></p>
+
+        </div>
+    </main>
+</body>
+
+</html>
