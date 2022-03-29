@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- load all Font Awesome styles + include all v5 backwards compatibility by default -->
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/c52311aa4d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+    <title>BarterBook</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="main.js"></script>
+    <div id="containerPost">
+        <div id="nameUser">
+            <p>${element.data.name}</p>
+        </div>
+        <h3 class="titlePost">${element.title}</h3>
+        <textarea class="commentDone" readonly>${element.description}</textarea>
+
+        <div class="btns">
+            <input class="counter" id="counter" type="number" value="0" name="" readonly />
+            <button class="like" id="like">
+          <i class="fa-solid fa-heart"></i>
+        </button>
+        </div>
+    </div>
+    `; let userEdit = " "; if (element.data.userId === auth.currentUser.uid) { userEdit = `
+    <div id="btnsEdit">
+        <button class="btnDelete" data-id="${element.id}">
+        <i class="fa-solid fa-trash"></i> Delete
+      </button>
+        <button class="btnEdit" data-id="${element.id}">
+        <i class="fa-solid fa-pen-to-square"></i> Edit
+      </button>
+        <button class="saveBtn" id="saveBtn" data-id="${element.id}>
+    </div>
+  </body>
+</html>

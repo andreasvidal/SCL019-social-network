@@ -4,8 +4,9 @@
 //import { initializeApp } from 'firebase/app';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
 // se importa función para obtener los servicios de firestore y conectar a la BdD
-import { getFirestore, collection, addDoc, getDocs, onSnapshot, query } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
-//import {printComments} from "../views/post.js"
+import { getFirestore, collection, addDoc, getDocs, onSnapshot, query, orderBy } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
+import { printComment } from "../views/post.js"
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -57,11 +58,10 @@ export const readDataPost = () => {
             })
         })
     });
-    //printComments(CommentBox);
-    return CommentBox;
-    
+    printComment(CommentBox);
+    return CommentBoxgit
 }
-console.log(CommentBox)
+
 
 // implementacion de firebase en archivo post
 

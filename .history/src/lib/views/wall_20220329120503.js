@@ -1,11 +1,7 @@
+import { async } from "regenerator-runtime";
 import { header } from "../../components/header.js";
 import { nav } from "../../components/nav.js";
-
 import { createPost } from "../../firebase/firebaseConfig.js";
-
-
-import { createPost, readDataPost } from "../../firebase/firebaseConfig.js";
-
 //import { collection, getDocs, orderBy } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
 
 //import db from '../../firebase/firebaseConfig.js'
@@ -24,56 +20,34 @@ export const Post = () => {
                 <input type="text" class="textTitle" id="textTitle" required>
                 <br>
                 <label for="DescrpTitle" class="descrpTitle"> Descripción: </label>
-                <textarea name="textarea" id="textarea" class="textarea" cols="30" rows="10"
-                    required>Write a comment...</textarea>
+                <textarea name="textarea" id="textArea" required class="textarea" cols="30" rows="10" placeholder="Write a comment..."></textarea>
                 <div class="btn-addPost">
-                    <button type="submit" id="addPost" class="btn-add"><i class="fa-solid fa-circle-plus"></i>Add</button>
+                    <button type="submint" id="addPost" class="btn-add"><i class="fa-solid fa-circle-plus"></i>Add</button>
                 </div>
             </form>
         </div>
-
         <div class="containerPostAdd" id="containerPostAdd"></div>
-
         <div>
             <h3></h3>
             <p></p>
-
         </div>
-    </main>`
-    
-    
+    </main>`;
     headerPost.appendChild(header());
     headerPost.appendChild(nav());
     divPublication.appendChild(headerPost);
     divPublication.innerHTML += view; //concatenar header, nav con view
-
     //let id = '';
     //btn addPost
-    const formPost = divPublication.querySelector("#formPost");
-
-   
-    
-    formPost.addEventListener("submit", async(event) => {
+    const btnAddPost = divPublication.querySelector("#formPost");
+    btnAddPost.addEventListener("submit", async(event) => {
         event.preventDefault();
         //almacena el comentario
         //Generando vista de wallPage
-       const inputTitle = formPost.querySelector("#textTitle").value;
-       const textArea = formPost.querySelector("#textarea").value;
-       console.log(inputTitle,textArea);
-       
-        await createPost(inputTitle,textArea);
-        
-
-    
+        const inputTitle = formPost.querySelector("#textTitle").value;
+        const textArea = formPost.querySelector("#textArea").value;
+        console.log(inputTitle, textArea);
+        await createPost(inputTitle, textArea);
     });
-
-
     //vaciar textarea
-    const emptyText = divPublication.querySelector("textArea");
-    emptyText.addEventListener("focus", () => {
-        emptyText.value = "";
-    })
     return divPublication;
 };
-
-

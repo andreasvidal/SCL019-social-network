@@ -42,23 +42,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem;
+    margin-top: 1rem;
     padding: auto;
 }
 
 
 /*BTN LOG OUT*/
 
-.btn-logOut {
-    border: 0.1rem solid var(--white-brown-color);
+button[type="button"] {
+    border: none;
     cursor: pointer;
-    background-color: var(--chocolate-color);
-    font-family: "Baloo 2", cursive;
-    font-size: 1rem;
-    color: var(--white-brown-color);
-    border-radius: 1.25rem;
-    width: 8rem;
-    padding: 0.4rem;
 }
 
 
@@ -148,7 +141,7 @@ input[type="text" i] {
     border-radius: none;
 }
 
-#addPost {
+#addPost .btn-logOut {
     text-decoration: none;
     font-family: "Baloo 2", cursive;
     font-size: 1rem;

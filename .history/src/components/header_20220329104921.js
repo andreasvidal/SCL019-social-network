@@ -6,7 +6,8 @@ export const header = () => {
     <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
 </div>
 <div class="container-btn">
-    <button type="submit" class="btn-logOut">Log out</button>
+    <button type="submit" class="btn-logOut">
+</button>
 </div>
 <div class="nav">
     <nav class="nav-container">
