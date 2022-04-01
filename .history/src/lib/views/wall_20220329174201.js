@@ -1,4 +1,3 @@
-
 import { header } from "../../components/header.js";
 import { nav } from "../../components/nav.js";
 import { createPost, readDataPost } from "../../firebase/firebaseConfig.js";
@@ -26,13 +25,13 @@ export const Post = () => {
                 </div>
             </form>
         </div>
-        <div class="containerPostAdd" id="containerPostAdd">
-        
+        <div class="containerPostAdd" id="containerPostAdd"></div>
+        <div>
+            <h3></h3>
+            <p></p>
         </div>
-       
     </main>`;
     readDataPost()
-
     headerPost.appendChild(header());
     headerPost.appendChild(nav());
     divPublication.appendChild(headerPost);
@@ -46,8 +45,7 @@ export const Post = () => {
         //Generando vista de wallPage
         const inputTitle = formPost.querySelector("#textTitle").value;
         const textArea = formPost.querySelector("#textArea").value;
-       await createPost(inputTitle, textArea);
-       console.log(createPost)
+        createPost(inputTitle, textArea);
         readDataPost(inputTitle, textArea);
     });
 
@@ -57,5 +55,4 @@ export const Post = () => {
         emptyText.value = "";
     })
     return divPublication;
-    readDataPost()
 };

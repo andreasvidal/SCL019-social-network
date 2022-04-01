@@ -4,8 +4,7 @@
 //import { initializeApp } from 'firebase/app';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
 // se importa función para obtener los servicios de firestore y conectar a la BdD
-import { getFirestore, collection, addDoc, getDocs, getDoc, onSnapshot, query, orderBy, updateDoc, deleteDoc, Timestamp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
+import { getFirestore, collection, addDoc, getDocs, onSnapshot, query, orderBy } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
 import { printComments } from "../lib/views/post.js"
 
 
@@ -33,57 +32,46 @@ const db = getFirestore(app);
 //export const user = auth.currentUser; // autentifica el usuario
 
 
-//------------------- GUARDAR DATOS POST ---------------------------
+// guardar datos post
+export const createPost = async(comment) => { // Add a new document with a generated id.
 
-export const createPost = async(inputTitle, textArea) => { // Add a new document with a generated id.
-
-    const date = Timestamp.fromDate(new Date());
-    //const userId = auth.currentUser.uid;
-    /*const name = auth.currentUser.displayName;
+    /*const date = Timestamp.fromDate(new Date());
+    const name = auth.currentUser.displayName;
+    const userId = auth.currentUser.uid;
     const likes = [];
     const likesCounter = 0;*/
-    await addDoc(collection(db, "post"), {
-        inputTitle,
-        textArea,
-        date,
-    }); //guardamos la coleccion post 
-
-    
+    await addDoc(collection(db, "post"), { comment }); //guardamos la coleccion post 
 };
-// --------------------LEER DATOS POST----------------------
-const getTask = ()=> getDocs(collection(db, "post"))
-
-export const readDataPost = async() => {
-
- const querySnapshot = await getTask()
- //console.log(querySnapshot)
-
- //let html = " "
- const q = query(collection(db, "post"), orderBy("date", "desc"));
- onSnapshot(q, (querySnapshot) => {
-    querySnapshot.forEach(doc =>{
-
-        const docPost =doc.data()
-        printComments(docPost);
-        console.log(docPost)
-
-
-    })
-    return printComments
-
-});
-    /* const q = query(collection(db, "post"), orderBy("date", "desc"));
+// Leer datos de post
+export const readDataPost = () => {
+    const q = query(collection(db, "post"), orderBy("date", "desc"));
     onSnapshot(q, (querySnapshot) => { //onSnapshot escucha los elementos del documento
-       
-        querySnapshot.forEach((doc) => {
-            const docPost = doc.data();
-            
-            printComments(docPost);
-            console.log(docPost)
+        const CommentBox = [];
+        querySnapshot.forEach((doc) => { //QuerySnapshot accede a los objetos que llama de doc por medio del array
+            console.log("documentos", doc)
+            CommentBox.push({
+                id: doc.id,
+                datepost: Date.now(),
+                data: doc.data(),
+                likesCounter: 0,
+                likes: []
+            })
         })
-       
+        printComments(CommentBox);
+        return CommentBox
+    });
 
-        return printComments
-    }); */
-   
 };
+
+// Borrar datos
+export const postDelete = async(id) => {
+    await deleteDoc(doc(db, 'posts', id));
+    console.log(await deleteDoc);
+};
+
+// Editar datos
+export const editPost = async(id, description) => {
+        const refreshPost = doc(db, 'posts', id);
+        await updateDoc(refreshPost, {
+            description: description,
+        });

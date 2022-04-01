@@ -8,6 +8,7 @@ export const header = () => {
 <div class="container-btn">
     <button type="submit" class="btn-logOut">Log out</button>
 </div>
+
 </header>`
 
     return createHeader
