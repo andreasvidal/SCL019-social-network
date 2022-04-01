@@ -20,17 +20,8 @@
 
 .txtSing {
     justify-content: center;
-    text-align: center;
+    align-items: center;
     margin: 1rem;
     font-family: "Baloo 2", cursive;
-}
-
-.userCont {
-    margin: 1.1rem;
-}
-
-.btnConfirmation {
-    display: grid;
-    justify-content: center;
-    text-align: center;
+    ;
 }

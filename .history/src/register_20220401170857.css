@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+.inputUser {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*TXT BIENVENIDA*/
+
+.txtSing {
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    font-size: "Baloo 2", cursive;
+    ;
+}

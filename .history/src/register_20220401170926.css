@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: 0;
 }
 
 @font-face {
@@ -20,17 +21,8 @@
 
 .txtSing {
     justify-content: center;
-    text-align: center;
+    align-items: center;
     margin: 1rem;
-    font-family: "Baloo 2", cursive;
-}
-
-.userCont {
-    margin: 1.1rem;
-}
-
-.btnConfirmation {
-    display: grid;
-    justify-content: center;
-    text-align: center;
+    font-size: "Baloo 2", cursive;
+    ;
 }
