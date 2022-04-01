@@ -4,6 +4,7 @@
 //import { initializeApp } from 'firebase/app';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
 // se importa función para obtener los servicios de firestore y conectar a la BdD
+<<<<<<< HEAD
 import {
     getFirestore,
     collection,
@@ -22,6 +23,12 @@ import {
     createUserWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 import { printComments } from "../lib/views/post.js";
+=======
+import { getFirestore, collection, addDoc, getDocs, onSnapshot, query, orderBy } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
+import { async } from "regenerator-runtime";
+import { printComments } from "../lib/views/post.js"
+
+>>>>>>> 57b3719e544ecf1bfe6e3bcba31810d2bdc2a155
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -59,7 +66,33 @@ export const createPost = async(inputTitle, textArea) => {
         inputTitle,
         textArea,
         date,
+<<<<<<< HEAD
     }); //guardamos la coleccion post
+=======
+    }); //guardamos la coleccion post 
+};
+// Leer datos de post
+export const readDataPost = async () => {
+    const q = query(collection(db, "post"), orderBy("date", "desc"));
+    onSnapshot(q, (querySnapshot) => { //onSnapshot escucha los elementos del documento
+        const commentBox = [];
+        querySnapshot.forEach((doc) => { //QuerySnapshot accede a los objetos que llama de doc por medio del array
+            console.log("documentos", doc)
+            commentBox.push({
+                id: doc.id,
+                datepost: Date.now(),
+                data: doc.data(),
+                date: doc.data().date,
+                comment: doc.data().comment,
+                likesCounter: 0,
+                likes: []
+            })
+        })
+        printComments (commentBox);
+        return commentBox;
+    });
+   
+>>>>>>> 57b3719e544ecf1bfe6e3bcba31810d2bdc2a155
 };
 // --------------------LEER DATOS POST----------------------
 const getTask = () => getDocs(collection(db, "post"));

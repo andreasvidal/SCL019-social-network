@@ -57,5 +57,9 @@ export const Post = () => {
         /*document.querySelector("#textTitle").value = " ";
         document.querySelector("#textArea").value = " ";*/
     return divPublication;
+<<<<<<< HEAD
 
 };
+=======
+};
+>>>>>>> 57b3719e544ecf1bfe6e3bcba31810d2bdc2a155
