@@ -46,9 +46,9 @@ export const Post = () => {
         //Generando vista de wallPage
         const inputTitle = formPost.querySelector("#textTitle").value;
         const textArea = formPost.querySelector("#textArea").value;
+       //readDataPost(inputTitle, textArea);
        await createPost(inputTitle, textArea);
-       console.log(createPost)
-        readDataPost(inputTitle, textArea);
+        
     });
 
     //vaciar textarea

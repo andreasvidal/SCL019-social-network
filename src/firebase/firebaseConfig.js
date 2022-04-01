@@ -58,20 +58,19 @@ export const readDataPost = async() => {
  const querySnapshot = await getTask()
  //console.log(querySnapshot)
 
- //let html = " "
  const q = query(collection(db, "post"), orderBy("date", "desc"));
- onSnapshot(q, (querySnapshot) => {
-    querySnapshot.forEach(doc =>{
+    onSnapshot(q, (querySnapshot) => {
+        querySnapshot.forEach(doc =>{
 
-        const docPost =doc.data()
-        printComments(docPost);
-        console.log(docPost)
+            const docPost =doc.data()
+            printComments(docPost);
+            console.log(docPost)
 
 
-    })
-    return printComments
+        })
+        return printComments
 
-});
+    });
     /* const q = query(collection(db, "post"), orderBy("date", "desc"));
     onSnapshot(q, (querySnapshot) => { //onSnapshot escucha los elementos del documento
        
