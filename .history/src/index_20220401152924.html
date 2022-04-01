@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- load all Font Awesome styles + include all v5 backwards compatibility by default -->
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/c52311aa4d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+    <title>BarterBook</title>
+</head>
+<div class="containerLogin" id="containerLogin">
+    <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
+    <h1 class="titleWelcome">¡Bienvenidos!</h1>
+    <div class="inputUser">
+        <label for="labelUser" class="inputUserLabel">UserName</label>
+        <input type="text" class="inputEmail" id="inputEmail" placeholder="asdf123@email.com" required>
+    </div>
+    <div class="passCont">
+        <label for="pasword" class="labelPassword">Password</label>
+        <input type="password" class="password" id="inputPassword" placeholder="xxxxxx" required>
+        <button class="btnConfirmation" id="btnConf">Sign In</button>
+    </div>
+    <div class="containerBtns">
+        <a href="#/" class="links">Log In</a>
+        <a href="#/login" class="links">Sign Up with</a>
+        <a href="#/register" class="links">Register <img src="./img/google.png" alt="google" class="google"></a>
+    </div>
+</div>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

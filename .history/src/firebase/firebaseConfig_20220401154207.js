@@ -82,18 +82,17 @@ export const readDataPost = async() => {
 const auth = getAuth(app);
 export function dataUser() {
     let email = document.getElementById("inputEmail").value;
-    console.log(email)
     let password = document.getElementById("inputPassword").value;
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            console.log('Usuario registrado!');
+            // Signed in
             const user = userCredential.user;
             // ...
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage);
+            alert(errorCode);
             // ..
         });
 }

@@ -19,19 +19,20 @@ export const printComments = (docPost) => {
     //if (docPost.data.userId === auth.currentUser.uid) {
     userEdit = `
     <div id="btnsEdit">
-    <button class="btnDelete" data-id="${docPost.id}">
+        <button class="btnDelete" data-id="${docPost.id}">
         <i class="fa-solid fa-trash"></i> Delete
       </button>
-    <button class="btnEdit" data-id="${docPost.id}">
+        <button class="btnEdit" data-id="${docPost.id}">
         <i class="fa-solid fa-pen-to-square"></i> Edit
       </button>
-    <button class="saveBtn" id="saveBtn" data-id="${docPost.id}">
-        <i class="fa-thin fa-floppy-disk"></i> Save</button>
-</div>
+        <button class="saveBtn" id="saveBtn" data-id="${docPost.id}"></button>
+    </div>
     `;
     // }
     //console.log(html)
     containerPostvoid.innerHTML += html + userEdit
+
+    array.forEach(html);
 
 
     //Evento para borrar post

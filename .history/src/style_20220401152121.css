@@ -49,12 +49,9 @@
 }
 
 .container-img {
-    margin: 1.3rem;
-}
-
-.google {
-    width: 1.2rem;
-    height: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    margin: 1.2rem;
 }
 
 

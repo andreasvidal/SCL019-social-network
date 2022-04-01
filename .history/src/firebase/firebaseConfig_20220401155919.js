@@ -84,7 +84,7 @@ export function dataUser() {
     let email = document.getElementById("inputEmail").value;
     console.log(email)
     let password = document.getElementById("inputPassword").value;
-    createUserWithEmailAndPassword(auth, email, password)
+    firebase.auth().createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             console.log('Usuario registrado!');
             const user = userCredential.user;

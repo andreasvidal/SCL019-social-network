@@ -48,15 +48,6 @@
     grid-column-end: 3;
 }
 
-.container-img {
-    margin: 1.3rem;
-}
-
-.google {
-    width: 1.2rem;
-    height: 1.2rem;
-}
-
 
 /*BTN LOG OUT*/
 
@@ -161,8 +152,7 @@ input[type="password" i] {
 .btnDelete:hover,
 .btnEdit:hover,
 .saveBtn:hover:hover,
-.links:hover,
-.btnConfirmation:hover {
+.links:hover {
     opacity: 0.7;
     transition: 0.3s;
     cursor: pointer;

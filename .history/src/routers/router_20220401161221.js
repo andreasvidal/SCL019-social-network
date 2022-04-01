@@ -9,8 +9,11 @@ const templateviews = (hash) => {
     containerRoot.innerHTML = ''; // Reiniciando el Div a vacio;
     switch (hash) {
         case '':
-        case '#/home':
             containerRoot.appendChild(home());
+        case '#/home':
+            break;
+        case '#/login':
+            containerRoot.appendChild(login());
             break;
         case '#/login':
             containerRoot.appendChild(login());
@@ -29,9 +32,6 @@ const templateviews = (hash) => {
 
 export const changeRouter = (hash) => {
     if (hash === '#/') {
-        return templateviews(hash);
-    }
-    if (hash === '#/home') {
         return templateviews(hash);
     }
     if (hash === '#/login') {

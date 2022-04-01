@@ -1,5 +1,4 @@
-import { home } from '../lib/views/home.js';
-import { login } from '../lib/views/login.js';
+import { login } from '../lib/views/home.js';
 import { Post } from '../lib/views/wall.js'
 //import { register } from './views/registerView.js';/
 
@@ -9,10 +8,12 @@ const templateviews = (hash) => {
     containerRoot.innerHTML = ''; // Reiniciando el Div a vacio;
     switch (hash) {
         case '':
-        case '#/home':
             containerRoot.appendChild(home());
+        case '#/home':
             break;
         case '#/login':
+            containerRoot.appendChild(login());
+            break;
             containerRoot.appendChild(login());
             break;
         case '#/register':
@@ -29,9 +30,6 @@ const templateviews = (hash) => {
 
 export const changeRouter = (hash) => {
     if (hash === '#/') {
-        return templateviews(hash);
-    }
-    if (hash === '#/home') {
         return templateviews(hash);
     }
     if (hash === '#/login') {

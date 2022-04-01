@@ -48,23 +48,13 @@
     grid-column-end: 3;
 }
 
-.container-img {
-    margin: 1.3rem;
-}
-
-.google {
-    width: 1.2rem;
-    height: 1.2rem;
-}
-
 
 /*BTN LOG OUT*/
 
 .btn-logOut,
 .btnDelete,
 .btnEdit,
-.saveBtn,
-.btnConfirmation {
+.saveBtn {
     border: 0.1rem solid var(--white-brown-color);
     cursor: pointer;
     background-color: var(--chocolate-color);
@@ -123,12 +113,12 @@
 
 /*INPUT TITLE*/
 
-input[type="text" i],
-input[type="password" i] {
+input[type="text password" i] {
     border-radius: 5rem;
     border: 0;
     outline: none;
     background-color: var(--opacity-bg-post);
+    padding: 0.3rem;
     color: var(--white-brown-color)
 }
 
@@ -161,8 +151,7 @@ input[type="password" i] {
 .btnDelete:hover,
 .btnEdit:hover,
 .saveBtn:hover:hover,
-.links:hover,
-.btnConfirmation:hover {
+.links:hover {
     opacity: 0.7;
     transition: 0.3s;
     cursor: pointer;
@@ -265,21 +254,11 @@ input[type="password" i] {
 }
 
 .inputUserLabel,
-.labelPassword {
+.password {
     text-align: center;
     padding: 1.2rem;
     font-family: "Baloo 2", cursive;
     font-size: 1rem;
-}
-
-.inputEmail,
-.password {
-    padding: 0.9rem;
-}
-
-::placeholder {
-    color: var(--white-brown-color);
-    font-size: 1.3em;
 }
 
 .inputEmail {

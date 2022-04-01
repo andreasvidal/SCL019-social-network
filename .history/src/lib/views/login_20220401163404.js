@@ -3,12 +3,12 @@ export const login = () => {
     const loginContainer = document.createElement("div");
     const login = `
     <div class="inputUser">
-    <div class="imgLogo">
-        <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
-    </div>
     <h2 class="txtSing">
     iniciar Sesión!
 </h2>
+    <div class="imgLogo">
+        <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
+    </div>
     <div class="userCont">
         <label for="labelUser" class="inputUserLabel">UserName</label>
         <input type="text" class="inputEmail" id="inputEmail" placeholder="asdf123@email.com" required>
