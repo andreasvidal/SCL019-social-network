@@ -1,0 +1,27 @@
+export const login = () => {
+    //window.location.hash = '#/login';
+    const viewHome = document.createElement('div');
+    viewHome.classList.add("container-login");
+    const formHome = `<div class="containerLogin" id="containerLogin">
+    <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
+    <h1 class="titleWelcome">¡Bienvenidos!</h1>
+    <div class="inputUser">
+        <label for="inputUser" class="inputUser">UserName</label>
+        <input type="text" placeholder="asdf123@email.com" required>
+    </div>
+    <div class="password">
+        <label for="pasword" class="password">Password</label>
+        <input type="text" placeholder="xxxxxx" required>
+    </div>
+    <div class="containerBtns">
+        <a href="#" class="links">Log In</a>
+        <a href="#/login" class="links">Sign Up with Google</a>
+        <a href="#/register" class="links">Register</a>
+    </div>
+</div>
+`;
+    viewHome.innerHTML += formHome;
+    console.log(viewHome);
+
+    return viewHome
+};

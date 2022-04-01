@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- load all Font Awesome styles + include all v5 backwards compatibility by default -->
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/c52311aa4d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+    <title>BarterBook</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="main.js"></script>
+    <div id="containerPost" class="containerPost">
+        <div id="nameUser">
+            <p>${comment.data.name}</p>
+        </div>
+        <h3 class="titlePost">${comment.title}</h3>
+        <textarea class="commentDone" readonly>${comment.comment}</textarea>
+        <div class="likeContainer">
+            <div class="inputLike">
+                <input class="counter" id="counter" type="number" value="0" name="" readonly />
+            </div>
+            <div class="btnLike">
+                <button class="like" id="like"><i class="fa-solid fa-heart"></i>
+            </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
