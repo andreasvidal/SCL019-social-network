@@ -20,7 +20,6 @@ import {
 import {
     getAuth,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 import { printComments } from "../lib/views/post.js";
 
@@ -80,13 +79,30 @@ export const readDataPost = async() => {
     });
 };
 //CREAR USUARIOS
-
-//FUNCION PARA INICIAR SESIÓN
-const singIn = async() => {
+const auth = getAuth(app);
+export const dataUser = () => {
+        let email = document.getElementById("inputEmail").value;
+        console.log(email)
+        let password = document.getElementById("inputPassword").value;
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                console.log('Usuario registrado!');
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+                // ..
+            });
+    }
+    //FUNCION PARA INICIAR SESIÓN
+const singIn = () => {
     let email = document.getElementById("inputEmail").value;
-    let password = document.getElementById("inputPassword").value;
+    let contrasena = document.getElementById("inputPassword").value;
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    firebase.auth().signInWithEmailAndPassword(email, contrasena)
         .then((user) => {
             // Signed in
             // ...

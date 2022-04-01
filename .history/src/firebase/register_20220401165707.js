@@ -1,8 +1,7 @@
-//import { singIn } from "../../firebase/firebaseConfig.js"
-export const login = () => {
-    window.location.hash = '#/login';
-    const loginContainer = document.createElement("div");
-    const login = `
+export const register = () => {
+    window.location.hash = '#/register';
+    const registerContainer = document.createElement("div");
+    const register = `
     <div class="inputUser">
     <div class="imgLogo">
         <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
@@ -22,16 +21,7 @@ export const login = () => {
     </div>
 </div>`
 
-    loginContainer.innerHTML = login
-        //BTN PARA INICIO SESION
-    const btnSign = loginContainer.querySelector("#btnConf")
-    console.log(btnSign)
-    if (btnSign) {
-        btnSign.addEventListener("click", () => {
-            console.log("btnConf");
-        });
-
-    }
-    console.log(loginContainer);
-    return loginContainer
+    registerContainer.innerHTML = register
+    console.log(registerContainer);
+    return registerContainer
 }

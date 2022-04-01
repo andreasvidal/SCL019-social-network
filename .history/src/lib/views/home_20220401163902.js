@@ -7,8 +7,8 @@ export const home = () => {
     <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
     <h1 class="titleWelcome">¡Bienvenidos!</h1>
     <div class="containerBtns">
-        <a href="#/login" class="links">Log In </a>
-        <a href="#/login" class="links">Sign Up with <img src="./img/google.png" alt="google" class="google"></a>
+        <a href="#/login" class="links">Log In <img src="./img/google.png" alt="google" class="google"></a>
+        <a href="#/login" class="links">Sign Up with</a>
         <a href="#/register" class="links">Register </a>
     </div>
 </div>

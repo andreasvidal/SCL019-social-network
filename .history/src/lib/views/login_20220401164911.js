@@ -1,4 +1,4 @@
-//import { singIn } from "../../firebase/firebaseConfig.js"
+import { singIn } from "../../firebase/firebaseConfig.js"
 export const login = () => {
     window.location.hash = '#/login';
     const loginContainer = document.createElement("div");
@@ -33,5 +33,6 @@ export const login = () => {
 
     }
     console.log(loginContainer);
+    await singIn()
     return loginContainer
 }

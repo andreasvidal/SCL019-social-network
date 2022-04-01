@@ -20,7 +20,6 @@ import {
 import {
     getAuth,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 import { printComments } from "../lib/views/post.js";
 

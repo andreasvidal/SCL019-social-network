@@ -20,7 +20,6 @@ import {
 import {
     getAuth,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 import { printComments } from "../lib/views/post.js";
 
@@ -82,7 +81,7 @@ export const readDataPost = async() => {
 //CREAR USUARIOS
 
 //FUNCION PARA INICIAR SESIÓN
-const singIn = async() => {
+const singIn = () => {
     let email = document.getElementById("inputEmail").value;
     let password = document.getElementById("inputPassword").value;
 

@@ -1,6 +1,5 @@
-//import { singIn } from "../../firebase/firebaseConfig.js"
-export const login = () => {
-    window.location.hash = '#/login';
+export const register = () => {
+    window.location.hash = '#/register';
     const loginContainer = document.createElement("div");
     const login = `
     <div class="inputUser">

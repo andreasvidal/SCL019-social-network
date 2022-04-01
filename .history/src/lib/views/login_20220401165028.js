@@ -25,6 +25,8 @@ export const login = () => {
     loginContainer.innerHTML = login
         //BTN PARA INICIO SESION
     const btnSign = loginContainer.querySelector("#btnConf")
+    let email = document.getElementById("inputEmail").value;
+    let password = document.getElementById("inputPassword").value;
     console.log(btnSign)
     if (btnSign) {
         btnSign.addEventListener("click", () => {
