@@ -7,8 +7,7 @@ import { createPost, readDataPost } from "../../firebase/firebaseConfig.js";
 //import db from '../../firebase/firebaseConfig.js'
 
 export const Post = () => {
-    //window.location.hash = '#/post';
-    //const user = getUser();
+    window.location.hash = '#/post';
     const headerPost = document.createElement("header");
     const divPublication = document.createElement("div");
     divPublication.classList.add("post-container");
@@ -54,8 +53,12 @@ export const Post = () => {
     //vaciar textarea
     const emptyText = divPublication.querySelector("textArea");
     emptyText.addEventListener("focus", () => {
-        emptyText.value = "";
-    })
+            emptyText.value = "";
+        })
+        //limpiar formulario
+        /*document.querySelector("#textTitle").value = " ";
+        document.querySelector("#textArea").value = " ";*/
     return divPublication;
     readDataPost()
+
 };

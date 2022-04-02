@@ -136,6 +136,7 @@ input[type="text" i] {
     outline: none;
     background-color: var(--opacity-bg-post);
     padding: 0.3rem;
+    color: var(--white-brown-color)
 }
 
 
@@ -151,7 +152,7 @@ input[type="text" i] {
 }
 
 
-/*ESTILOS BTN ADD POST*/
+/*ESTILOS BTNS*/
 
 .btn-addPost {
     display: flex;

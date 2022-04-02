@@ -4,9 +4,25 @@
 //import { initializeApp } from 'firebase/app';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
 // se importa función para obtener los servicios de firestore y conectar a la BdD
-import { getFirestore, collection, addDoc, getDocs, getDoc, onSnapshot, query, orderBy, updateDoc, deleteDoc, Timestamp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
-import { printComments } from "../lib/views/post.js"
+
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    onSnapshot,
+    query,
+    orderBy,
+    updateDoc,
+    deleteDoc,
+    Timestamp,
+} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+import { printComments } from "../lib/views/post.js";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -19,7 +35,7 @@ const firebaseConfig = {
     projectId: "scl019-social-network",
     storageBucket: "scl019-social-network.appspot.com",
     messagingSenderId: "688901907009",
-    appId: "1:688901907009:web:17e9dc19d24585836f9cc0"
+    appId: "1:688901907009:web:17e9dc19d24585836f9cc0",
 };
 //guarda la info del proyecto
 // Initialize Firebase
@@ -38,51 +54,57 @@ const db = getFirestore(app);
 export const createPost = async(inputTitle, textArea) => { // Add a new document with a generated id.
 
     const date = Timestamp.fromDate(new Date());
-    //const userId = auth.currentUser.uid;
+    const userId = auth.currentUser.uid;
     /*const name = auth.currentUser.displayName;
-    const likes = [];
-    const likesCounter = 0;*/
+      const likes = [];
+      const likesCounter = 0;*/
     await addDoc(collection(db, "post"), {
         inputTitle,
         textArea,
         date,
-    }); //guardamos la coleccion post 
+
+    }); //guardamos la coleccion post
+
+  
 
     
 };
+
+
 // --------------------LEER DATOS POST----------------------
-const getTask = ()=> getDocs(collection(db, "post"))
+
+const getTask = () => getDocs(collection(db, "post"));
 
 export const readDataPost = async() => {
+    const querySnapshot = await getTask();
+    //console.log(querySnapshot)
 
- const querySnapshot = await getTask()
- //console.log(querySnapshot)
-
- const q = query(collection(db, "post"), orderBy("date", "desc"));
+    const q = query(collection(db, "post"), orderBy("date", "desc"));
     onSnapshot(q, (querySnapshot) => {
-        querySnapshot.forEach(doc =>{
-
-            const docPost =doc.data()
-            printComments(docPost);
-            console.log(docPost)
-
-
-        })
-        return printComments
-
-    });
-    /* const q = query(collection(db, "post"), orderBy("date", "desc"));
-    onSnapshot(q, (querySnapshot) => { //onSnapshot escucha los elementos del documento
-       
         querySnapshot.forEach((doc) => {
             const docPost = doc.data();
-            
             printComments(docPost);
-            console.log(docPost)
-        })
-       
-
-        return printComments
-    }); */
-   
+            //console.log(docPost)
+        });
+        return printComments;
+    });
 };
+//CREAR USUARIOS
+const auth = getAuth(app);
+export function dataUser() {
+    let email = document.getElementById("inputEmail").value;
+    let password = document.getElementById("inputPassword").value;
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode);
+            // ..
+        });
+}
+
