@@ -1,0 +1,12 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+.inputUser {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-items: center;
+}

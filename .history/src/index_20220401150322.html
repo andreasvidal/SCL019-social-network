@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- load all Font Awesome styles + include all v5 backwards compatibility by default -->
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/c52311aa4d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+    <title>BarterBook</title>
+</head>
+<div id="btnsEdit">
+    <button class="btnDelete" data-id="${docPost.id}">
+        <i class="fa-solid fa-trash"></i> Delete
+      </button>
+    <button class="btnEdit" data-id="${docPost.id}">
+        <i class="fa-solid fa-pen-to-square"></i> Edit
+      </button>
+    <button class="saveBtn" id="saveBtn" data-id="${docPost.id}"><i class="fa-thin fa-floppy-disk"></i> Save</button>
+</div>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

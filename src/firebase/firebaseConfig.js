@@ -4,7 +4,6 @@
 //import { initializeApp } from 'firebase/app';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
 // se importa función para obtener los servicios de firestore y conectar a la BdD
-
 import {
     getFirestore,
     collection,
@@ -18,12 +17,14 @@ import {
     deleteDoc,
     Timestamp,
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
-import {
+
+ import {
     getAuth,
     createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
-import { printComments } from "../lib/views/post.js";
 
+import { printComments } from "../lib/views/post.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -37,7 +38,7 @@ const firebaseConfig = {
     messagingSenderId: "688901907009",
     appId: "1:688901907009:web:17e9dc19d24585836f9cc0",
 };
-//guarda la info del proyecto
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // se rea una const db (data base) y se llama a getFirestore y dentro se pasa la app (aplication)
@@ -47,6 +48,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 //export const auth = getAuth(app); // Initialize Firebasegit
 //export const user = auth.currentUser; // autentifica el usuario
+const auth = getAuth(app);
 
 
 //------------------- GUARDAR DATOS POST ---------------------------
@@ -54,7 +56,7 @@ const db = getFirestore(app);
 export const createPost = async(inputTitle, textArea) => { // Add a new document with a generated id.
 
     const date = Timestamp.fromDate(new Date());
-    const userId = auth.currentUser.uid;
+    //const userId = auth.currentUser.uid;
     /*const name = auth.currentUser.displayName;
       const likes = [];
       const likesCounter = 0;*/
@@ -62,22 +64,16 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
         inputTitle,
         textArea,
         date,
-
     }); //guardamos la coleccion post
-
-  
-
-    
 };
 
 
 // --------------------LEER DATOS POST----------------------
 
-const getTask = () => getDocs(collection(db, "post"));
+//const getTask = () => getDocs(collection(db, "post"));
 
 export const readDataPost = async() => {
-    const querySnapshot = await getTask();
-    //console.log(querySnapshot)
+    //const querySnapshot = await getTask();
 
     const q = query(collection(db, "post"), orderBy("date", "desc"));
     onSnapshot(q, (querySnapshot) => {
@@ -89,28 +85,32 @@ export const readDataPost = async() => {
         return printComments;
     });
 };
+//----------------------CREAR USUARIOS--------------------------
 
-//-------------------------CREAR USUARIOS-----------------------------
+export const createUser = (inputUser,inputPassword) =>{
+    console.log("creando el usuario")
+    createUserWithEmailAndPassword(auth,inputUser,inputPassword)
+    .then((user) => {
+        console.log('¡Creamos al usuario!');
+    })
 
-const auth = getAuth(app);
+};
 
-export function dataUser() {
 
+//---------------FUNCION PARA INICIAR SESIÓN---------------------
+
+const singIn = async() => {
     let email = document.getElementById("inputEmail").value;
     let password = document.getElementById("inputPassword").value;
 
-    createUserWithEmailAndPassword(auth, email, password)
-
-    .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // ...
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
-        // ..
-    });
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((user) => {
+            // Signed in
+            // ...
+            console.log('sesión iniciada');
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+        });
 }
-

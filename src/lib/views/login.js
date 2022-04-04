@@ -1,36 +1,38 @@
-//import { dataUser } from "../../firebase/firebaseConfig.js"
+//import { singIn } from "../../firebase/firebaseConfig.js"
 export const login = () => {
     window.location.hash = '#/login';
-    const viewHome = document.createElement('div');
-    viewHome.classList.add("container-login");
-    const formHome = `<div class="containerLogin" id="containerLogin">
-    <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
-    <h1 class="titleWelcome">¡Bienvenidos!</h1>
+    const loginContainer = document.createElement("div");
+    const login = `
     <div class="inputUser">
-        <label for="labelUser" class="inputUserLabel">UserName</label>
-        <input type="text" id="inputEmail" placeholder="asdf123@email.com" required>
-    </div>
-    <div class="password">
-        <label for="pasword" class="password">Password</label>
-        <input type="text" id="inputPassword" placeholder="xxxxxx" required>
+        <div class="imgLogo">
+            <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
+        </div>
+        <h2 class="txtSing">
+        iniciar Sesión!
+        </h2>
+        <div class="userCont">
+            <label for="labelUser" class="inputUserLabel">UserName</label>
+            <input type="text" class="inputEmail" id="inputEmail" placeholder="asdf123@email.com" required>
+        </div>
+        <div class="passCont">
+            <label for="pasword" class="labelPassword">Password</label>
+            <input type="password" class="password" id="inputPassword" placeholder="xxxxxx" required>
+        </div>
         <button class="btnConfirmation" id="btnConf">Sign In</button>
-    </div>
-    <div class="containerBtns">
-        <a href="#/" class="links">Log In</a>
-        <a href="#/login" class="links">Sign Up with Google</a>
-        <a href="#/register" class="links">Register</a>
-    </div>
-</div>
-`;
-    viewHome.innerHTML += formHome;
-    //BTN PARA INICIO SESION
-    const btnSign = viewHome.querySelector("#btnConf")
-    console.log(btnSign)
+    </div>`
+
+    loginContainer.innerHTML = login
+
+    //------------------BTN PARA INICIO SESION-------------------
+    
+    const btnSign = loginContainer.querySelector("#btnConf")
+    //console.log(btnSign)
     if (btnSign) {
         btnSign.addEventListener("click", () => {
             console.log("btnConf");
         });
+
     }
-    console.log(viewHome);
-    return viewHome
-};
+    console.log(loginContainer);
+    return loginContainer
+}

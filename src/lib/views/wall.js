@@ -21,7 +21,7 @@ export const Post = () => {
                 <label for="DescrpTitle" class="descrpTitle"> Descripción: </label>
                 <textarea name="textarea" id="textArea" required class="textarea" cols="30" rows="10">"Write a comment..."</textarea>
                 <div class="btn-addPost">
-                    <button type="submint" id="addPost" class="btn-add"><i class="fa-solid fa-circle-plus"></i>Add</button>
+                    <button type="submit" id="addPost" class="btn-add"><i class="fa-solid fa-circle-plus"></i>Add</button>
                 </div>
             </form>
         </div>
@@ -59,6 +59,4 @@ export const Post = () => {
         /*document.querySelector("#textTitle").value = " ";
         document.querySelector("#textArea").value = " ";*/
     return divPublication;
-    readDataPost()
-
 };

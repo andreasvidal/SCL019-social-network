@@ -1,0 +1,294 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+ :root {
+    --black-color: #000000;
+    --brown-dark-color: #69442d;
+    --chocolate-color: #995b36;
+    --brown-light-color: #dec6af;
+    --white-brown-color: #f5f5f5;
+    --opacity-bg-post: rgba(105, 68, 45, 0.7);
+    --background-gradiant-desktop: linear-gradient( 0deg, rgba(222, 198, 175, 0.8) 0%, rgba(105, 68, 45, 1) 70%);
+    --background-gradient-mobil-color: linear-gradient( 90deg, rgba(222, 198, 175, 1) 80%, rgba(105, 68, 45, 1) 100%);
+}
+
+@font-face {
+    font-family: "Baloo 2", cursive;
+    font-family: "Bonheur Royale", cursive;
+    src: url("https://fonts.googleapis.com/css2?family=Baloo+2&family=Bonheur+Royale&display=swap");
+}
+
+#root {
+    display: grid;
+    column-gap: initial;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./img/coverbook1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+
+/*ESTILOS HEADER Y NAV*/
+
+
+/*HEADER*/
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+
+/*BTN LOG OUT*/
+
+.btn-logOut,
+.btnDelete,
+.btnEdit,
+.saveBtn {
+    border: 0.1rem solid var(--white-brown-color);
+    cursor: pointer;
+    background-color: var(--chocolate-color);
+    font-family: "Baloo 2", cursive;
+    font-size: 1rem;
+    color: var(--white-brown-color);
+    border-radius: 1.25rem;
+    width: 8rem;
+    padding: 0.4rem;
+}
+
+
+/*NAV*/
+
+.nav-post {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: initial;
+    justify-content: space-between;
+    background-color: var(--opacity-bg-post);
+    border-radius: 10rem;
+    width: auto;
+    margin: 2rem;
+}
+
+
+/*ICONOS*/
+
+.icon-nav {
+    margin: 0.7rem;
+    font-size: 1.1rem;
+    color: #f5f5f5;
+}
+
+
+/*ESTILOS INPUT TITLE Y TEXAREA COMENTARIO*/
+
+.formPost {
+    display: grid;
+    justify-content: center;
+    margin: 0.5rem;
+    z-index: 1;
+}
+
+
+/*ESTILOS LABEL TITLE y DESCRIPTION*/
+
+.textTitle,
+.descrpTitle,
+.textarea {
+    font-family: "Baloo 2", cursive;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+
+/*INPUT TITLE*/
+
+input[type="text" i],
+input[type="password" i] {
+    border-radius: 5rem;
+    border: 0;
+    outline: none;
+    background-color: var(--opacity-bg-post);
+    padding: 0.3rem;
+    color: var(--white-brown-color)
+}
+
+
+/*ESTILO TEXTAREA*/
+
+.textarea {
+    border-radius: 1rem;
+    border: 0;
+    outline: none;
+    background-color: var(--opacity-bg-post);
+    padding: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/*ESTILOS BTNS*/
+
+.btn-addPost {
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+}
+
+
+/*Hover botones*/
+
+#addPost:hover,
+.btn-logOut:hover,
+.btnDelete:hover,
+.btnEdit:hover,
+.saveBtn:hover:hover,
+.links:hover {
+    opacity: 0.7;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#addPost {
+    text-decoration: none;
+    font-family: "Baloo 2", cursive;
+    font-size: 1rem;
+    color: var(--white-brown-color);
+    border: 0.1rem solid #dec6af;
+    padding: 0.3rem;
+    background-color: var(--chocolate-color);
+    border-radius: 1.25rem;
+    width: 15rem;
+}
+
+
+/*conteneror post creados*/
+
+.containerPost {
+    border-radius: 1rem;
+    outline: none;
+    background-color: var(--opacity-bg-post);
+    padding: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/*textarea*/
+
+.commentDone {
+    background-color: var(--brown-light-color);
+    border-radius: 0.5rem;
+    padding: auto;
+}
+
+
+/*CONTENIDO DE LIKES*/
+
+.likeContainer {
+    display: grid;
+    align-items: center;
+    justify-content: baseline;
+}
+
+.counter {
+    background: none;
+    border: none;
+    padding-left: 1rem;
+    font-family: "Baloo 2", cursive;
+    font-size: 1rem;
+}
+
+.like {
+    font-family: "Baloo 2", cursive;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    border-color: transparent;
+    padding: 0.25rem;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center
+}
+
+.fa-heart:before,
+.fa-circle-plus::before {
+    padding: 0 0.3rem 0 0;
+}
+
+.like:hover {
+    background-color: #f5f5f5;
+    transition: 0.3s;
+    opacity: 0.5;
+}
+
+
+/*ESTILOS LOGIN*/
+
+.containerLogin {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*TITLE WELCOME*/
+
+.titleWelcome {
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+    font-family: "Baloo 2", cursive;
+}
+
+.inputUser {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.inputUserLabel,
+.password {
+    text-align: center;
+    padding: 1.2rem;
+    font-family: "Baloo 2", cursive;
+    font-size: 1rem;
+}
+
+::placeholder {
+    color: blue;
+    font-size: 1.5em;
+}
+
+.inputEmail {
+    background-color: transparent;
+}
+
+.containerBtns {
+    display: grid;
+    grid-template-rows: repeat(3, 6rem);
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.links {
+    text-align: center;
+    font-family: "Baloo 2", cursive;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--black-color);
+    text-decoration: none;
+    border: 0.3rem solid var(--white-brown-color);
+    border-radius: 1.25rem;
+    padding: 1rem 2rem;
+    letter-spacing: 0.3rem;
+    backdrop-filter: blur(0.3rem)
+}
