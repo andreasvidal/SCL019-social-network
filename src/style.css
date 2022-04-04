@@ -153,9 +153,6 @@ input[type="password" i] {
     align-items: flex-end;
 }
 
-
-/*Hover botones*/
-
 #addPost:hover,
 .btn-logOut:hover,
 .btnDelete:hover,

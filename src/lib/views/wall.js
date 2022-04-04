@@ -1,3 +1,4 @@
+
 import { header } from "../../components/header.js";
 import { nav } from "../../components/nav.js";
 import { createPost, readDataPost } from "../../firebase/firebaseConfig.js";
@@ -20,7 +21,7 @@ export const Post = () => {
                 <label for="DescrpTitle" class="descrpTitle"> Descripción: </label>
                 <textarea name="textarea" id="textArea" required class="textarea" cols="30" rows="10">"Write a comment..."</textarea>
                 <div class="btn-addPost">
-                    <button type="submint" id="addPost" class="btn-add"><i class="fa-solid fa-circle-plus"></i>Add</button>
+                    <button type="submit" id="addPost" class="btn-add"><i class="fa-solid fa-circle-plus"></i>Add</button>
                 </div>
             </form>
         </div>
@@ -44,10 +45,11 @@ export const Post = () => {
         //Generando vista de wallPage
         const inputTitle = formPost.querySelector("#textTitle").value;
         const textArea = formPost.querySelector("#textArea").value;
-        await createPost(inputTitle, textArea);
-        await readDataPost(inputTitle, textArea)
-
+       //readDataPost(inputTitle, textArea);
+       await createPost(inputTitle, textArea);
+        
     });
+
     //vaciar textarea
     const emptyText = divPublication.querySelector("textArea");
     emptyText.addEventListener("focus", () => {

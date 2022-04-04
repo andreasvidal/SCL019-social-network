@@ -4,6 +4,7 @@ export const login = () => {
     const loginContainer = document.createElement("div");
     const login = `
     <div class="inputUser">
+<<<<<<< HEAD
     <div class="imgLogo">
         <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
     </div>
@@ -22,11 +23,31 @@ export const login = () => {
         <button class="btnConfirmation" id="btnConf">Sign In</button>   
     </div>
 </div>`
+=======
+        <div class="imgLogo">
+            <img class="container-img" src="./img/logo-mobil.png" alt="logo BarterBook con un ícono del libro abierto" />
+        </div>
+        <h2 class="txtSing">
+        iniciar Sesión!
+        </h2>
+        <div class="userCont">
+            <label for="labelUser" class="inputUserLabel">UserName</label>
+            <input type="text" class="inputEmail" id="inputEmail" placeholder="asdf123@email.com" required>
+        </div>
+        <div class="passCont">
+            <label for="pasword" class="labelPassword">Password</label>
+            <input type="password" class="password" id="inputPassword" placeholder="xxxxxx" required>
+        </div>
+        <button class="btnConfirmation" id="btnConf">Sign In</button>
+    </div>`
+>>>>>>> 82d48d71f0620d555eee03457b2edde07b9b8c13
 
     loginContainer.innerHTML = login
-        //BTN PARA INICIO SESION
+
+    //------------------BTN PARA INICIO SESION-------------------
+    
     const btnSign = loginContainer.querySelector("#btnConf")
-    console.log(btnSign)
+    //console.log(btnSign)
     if (btnSign) {
         btnSign.addEventListener("click", () => {
             console.log("btnConf");

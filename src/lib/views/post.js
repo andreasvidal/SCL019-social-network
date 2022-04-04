@@ -1,8 +1,8 @@
 export const printComments = (docPost) => {
-    const containerPostvoid = document.querySelector("#containerPostAdd");
-
-    //containerPostvoid.innerHTML = "";
-
+  const containerPostvoid = document.querySelector("#containerPostAdd");
+  
+  //containerPostvoid.innerHTML = "";
+  
     const html = `<div id="containerPost">
         
         <h3 class="titlePost">${docPost.inputTitle}</h3>
