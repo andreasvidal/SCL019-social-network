@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Baloo 2", cursive;
+    font-family: "Bonheur Royale", cursive;
+    src: url("https://fonts.googleapis.com/css2?family=Baloo+2&family=Bonheur+Royale&display=swap");
+}
+
+
+/*IMG HEADER VISTA LOGIN*/
+
+.imgLogo,
+.container-img {
+    text-align: center;
+}
+
+
+/*CONTENEDOR VISTA LOGIN*/
+
+.inputUser {
+    display: grid;
+    text-align: center;
+}
+
+
+/*TXT BIENVENIDA*/
+
+.txtSing {
+    justify-content: center;
+    text-align: center;
+    margin: 1rem;
+    font-family: "Baloo 2", cursive;
+}
+
+.userCont {
+    margin: 1.1rem;
+}
+
+
+/*CONT. PASS*/
+
+.passCont {
+    display: grid;
+    grid-template-rows: repeat(2, 3rem);
+    padding-bottom: 1rem;
+}
+
+.btnConfirmation {
+    justify-content: left;
+    text-align: center;
+}
