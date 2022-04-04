@@ -111,7 +111,7 @@ export const createUser = (inputUser, inputPassword) => {
 //contraseña: 123456
 
 export const singIn = async() => {
-
+        console.log(singIn)
         let email = document.getElementById("inputEmail").value;
         let password = document.getElementById("inputPassword").value;
 
@@ -129,8 +129,8 @@ export const singIn = async() => {
             });
     }
     //LOG UOT
-const auth = getAuth();
 export const logOut = () => {
+    const auth = getAuth();
     signOut(auth).then(() => {
         // Sign-out successful.
         window.location.hash = "#/home"

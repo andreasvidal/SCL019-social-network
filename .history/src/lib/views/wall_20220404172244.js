@@ -54,9 +54,9 @@ export const Post = () => {
     emptyText.addEventListener("focus", () => {
             emptyText.value = "";
         })
-        //limpiar input titulo
-    divPublication.querySelector("#textTitle").value = " ";
-    //.............BTN LOG OUT       
+        //limpiar formulario
+        /*document.querySelector("#textTitle").value = " ";
+        document.querySelector("#textArea").value = " ";*/
     divPublication.querySelector(".btn-logOut").addEventListener("click", () => {
         logOut()
     });

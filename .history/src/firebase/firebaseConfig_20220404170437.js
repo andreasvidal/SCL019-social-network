@@ -50,7 +50,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 //export const auth = getAuth(app); // Initialize Firebasegit
 //export const user = auth.currentUser; // autentifica el usuario
-//const auth = getAuth(app);
+const auth = getAuth(app);
 
 
 //------------------- GUARDAR DATOS POST ---------------------------
@@ -111,7 +111,7 @@ export const createUser = (inputUser, inputPassword) => {
 //contraseña: 123456
 
 export const singIn = async() => {
-
+        console.log(singIn)
         let email = document.getElementById("inputEmail").value;
         let password = document.getElementById("inputPassword").value;
 
@@ -130,14 +130,11 @@ export const singIn = async() => {
     }
     //LOG UOT
 const auth = getAuth();
-export const logOut = () => {
-    signOut(auth).then(() => {
-        // Sign-out successful.
-        window.location.hash = "#/home"
-    }).catch((error) => {
-        // An error happened.
-    })
-}
+signOut(auth).then(() => {
+    // Sign-out successful.
+}).catch((error) => {
+    // An error happened.
+})
 
 // Borrar datos
 export const deletePost = async(id) => {

@@ -21,6 +21,7 @@ import {
 
 import {
     getAuth,
+    auth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut
@@ -111,7 +112,7 @@ export const createUser = (inputUser, inputPassword) => {
 //contraseña: 123456
 
 export const singIn = async() => {
-
+        console.log(singIn)
         let email = document.getElementById("inputEmail").value;
         let password = document.getElementById("inputPassword").value;
 
