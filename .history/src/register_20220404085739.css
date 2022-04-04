@@ -44,13 +44,11 @@
 
 .passCont {
     display: grid;
-    grid-template-rows: repeat(3, 3rem);
-    padding-bottom: 10rem;
-    margin-bottom: 10rem;
+    text-align: center;
+    justify-content: space-between;
 }
 
-
-/*.btnConfirmation {
+.btnConfirmation {
     justify-content: center;
     text-align: center;
-}*/
+}

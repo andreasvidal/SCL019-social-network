@@ -18,7 +18,7 @@ export const login = () => {
     <div class="passCont">
         <label for="pasword" class="labelPassword">Password</label>
         <input type="password" class="password" id="inputPassword" placeholder="xxxxxx" required>
-        
+        <br>
         <button class="btnConfirmation" id="btnConf">Sign In</button>   
     </div>
 </div>`

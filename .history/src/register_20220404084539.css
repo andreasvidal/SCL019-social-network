@@ -39,18 +39,8 @@
     margin: 1.1rem;
 }
 
-
-/*CONT. PASS*/
-
-.passCont {
-    display: grid;
-    grid-template-rows: repeat(3, 3rem);
-    padding-bottom: 10rem;
-    margin-bottom: 10rem;
-}
-
-
-/*.btnConfirmation {
-    justify-content: center;
+.btnConfirmation {
+    display: flex;
     text-align: center;
-}*/
+    align-items: center;
+}

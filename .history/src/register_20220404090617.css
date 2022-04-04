@@ -44,9 +44,9 @@
 
 .passCont {
     display: grid;
-    grid-template-rows: repeat(3, 3rem);
-    padding-bottom: 10rem;
-    margin-bottom: 10rem;
+    grid-template-columns: 6.25rem auto 6.25rem;
+    text-align: center;
+    justify-content: center;
 }
 
 

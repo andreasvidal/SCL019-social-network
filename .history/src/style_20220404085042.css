@@ -58,13 +58,13 @@
 }
 
 
-/*BTNS*/
+/*BTN LOG OUT*/
 
 .btn-logOut,
 .btnDelete,
 .btnEdit,
 .saveBtn,
-.btnConfirmation {
+.btnSingin {
     border: 0.1rem solid var(--white-brown-color);
     cursor: pointer;
     background-color: var(--chocolate-color);
@@ -261,9 +261,9 @@ input[type="password" i] {
 .inputUserLabel,
 .labelPassword {
     text-align: center;
-    padding: 1.1rem;
+    padding: 1.2rem;
     font-family: "Baloo 2", cursive;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .inputEmail,

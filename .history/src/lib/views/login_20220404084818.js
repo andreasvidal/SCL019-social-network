@@ -18,8 +18,10 @@ export const login = () => {
     <div class="passCont">
         <label for="pasword" class="labelPassword">Password</label>
         <input type="password" class="password" id="inputPassword" placeholder="xxxxxx" required>
+        <div class="btnSingin>
+        <button class="btnConfirmation" id="btnConf">Sign In</button>
+        </div>
         
-        <button class="btnConfirmation" id="btnConf">Sign In</button>   
     </div>
 </div>`
 
