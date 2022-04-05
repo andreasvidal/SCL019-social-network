@@ -10,6 +10,7 @@ import {
     addDoc,
     getDocs,
     getDoc,
+    doc,
     onSnapshot,
     query,
     orderBy,
@@ -18,13 +19,16 @@ import {
     Timestamp,
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
 
- import {
+import {
     getAuth,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    signOut
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { printComments } from "../lib/views/post.js";
+import { login } from "../lib/views/login.js";
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -48,7 +52,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 //export const auth = getAuth(app); // Initialize Firebasegit
 //export const user = auth.currentUser; // autentifica el usuario
-const auth = getAuth(app);
+//const auth = getAuth(app);
 
 
 //------------------- GUARDAR DATOS POST ---------------------------
@@ -56,14 +60,17 @@ const auth = getAuth(app);
 export const createPost = async(inputTitle, textArea) => { // Add a new document with a generated id.
 
     const date = Timestamp.fromDate(new Date());
-    //const userId = auth.currentUser.uid;
+    const userId = auth.currentUser.uid;
+    
     /*const name = auth.currentUser.displayName;
       const likes = [];
       const likesCounter = 0;*/
     await addDoc(collection(db, "post"), {
+        
         inputTitle,
         textArea,
         date,
+        userId
     }); //guardamos la coleccion post
 };
 
@@ -78,8 +85,10 @@ export const readDataPost = async() => {
     const q = query(collection(db, "post"), orderBy("date", "desc"));
     onSnapshot(q, (querySnapshot) => {
         querySnapshot.forEach((doc) => {
+            
             const docPost = doc.data();
-            printComments(docPost);
+            
+            printComments(docPost,doc.id);
             //console.log(docPost)
         });
         return printComments;
@@ -87,44 +96,72 @@ export const readDataPost = async() => {
 };
 //----------------------CREAR USUARIOS--------------------------
 
-export const createUser = (inputUser,inputPassword) =>{
+export const createUser = (inputUser, inputPassword) => {
     console.log("creando el usuario")
-    createUserWithEmailAndPassword(auth,inputUser,inputPassword)
-    .then((userCredential) => {
-        const user = userCredential.user;
-        console.log (user)
-        console.log('¡Creamos al usuario!');
-    })
-
+    createUserWithEmailAndPassword(auth, inputUser, inputPassword)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user)
+            console.log('¡Creamos al usuario!');
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
 };
 
 
 //---------------FUNCION PARA INICIAR SESIÓN---------------------
+//usuario: 1234
+//correo: 1234@gmail.com
+//contraseña: 123456
 
-export const singIn = () => {
-    let email = document.getElementById("inputUser").value;
-    let password = document.getElementById("inputPassword").value;
+export const singIn = async() => {
 
-    signInWithEmailAndPassword(auth,email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-               window.location.hash = "post"
-        })
-        .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
+        let email = document.getElementById("inputEmail").value;
+        let password = document.getElementById("inputPassword").value;
 
-            if (errorCode === "auth/user-not-found") {
-                root.querySelector("#mensajeErrorLogin").innerHTML = "usuario no regristrado";
-      
-              } else if (errorCode === "auth/wrong-password") {
-                root.querySelector("#mensajeErrorLogin").innerHTML = "Contraseña incorrecta";
-              }
-              else if (errorCode === "auth/invalid-email") {
-                root.querySelector("#mensajeErrorLogin").innerHTML = "Correo invalido";
-              }
-              else if (errorCode === "auth/internal-error") {
-                root.querySelector("#mensajeErrorLogin").innerHTML = "Ingrese contraseña";
-              }
-        });
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                window.location.hash = '#/post'
+                    // Signed in
+                    // ...
+                console.log('sesión iniciada');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                
+                if (errorCode === 'auth/invalid-email') {
+                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Email Invalido</p>";
+                    
+                   //---si no esta ingresado el corro, arroja mensaje--
+                  } else if (errorCode === 'auth/missing-email') {
+                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Ingresar Email</p>";
+            
+                  } else if (errorCode === 'auth/internal-error') {
+                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Rellene todos los campos</p>";
+            
+                  } else if (errorCode === 'auth/wrong-password') {
+                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Minimo 6 caracteres</p>";
+                  }
+            });
+    }
+    //LOG UOT
+const auth = getAuth();
+export const logOut = () => {
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        window.location.hash = "#/home"
+    }).catch((error) => {
+        // An error happened.
+    })
 }
+
+// Borrar datos
+export const deletePost = async (id) => { 
+    
+    await deleteDoc(doc(db,"post",id));
+    console.log(deletePost);
+};

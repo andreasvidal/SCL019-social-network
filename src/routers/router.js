@@ -5,49 +5,49 @@ import { register } from '../lib/views/register.js';
 
 
 const templateviews = (hash) => {
-    const containerRoot = document.getElementById('root');
-    containerRoot.innerHTML = ''; // Reiniciando el Div a vacio;
+    const containerRoot = document.getElementById("root");
+    containerRoot.innerHTML = " "; // Reiniciando el Div a vacio;
     switch (hash) {
-        case '':
-        case '#/home':
+        //case " ":
+        case "#/home":
             containerRoot.appendChild(home());
             break;
         case '#/login':
             containerRoot.appendChild(login());
             break;
-        case '#/register':
+        case "#/register":
             containerRoot.appendChild(register());
             break;
-        case '#/post':
+        case "#/post":
             containerRoot.appendChild(Post());
             break;
         default:
-            containerRoot.innerHTML = 'ERROR 404';
+            containerRoot.innerHTML = "ERROR 404";
             break;
     }
 };
 
 export const changeRouter = (hash) => {
-    if (hash === '#/') {
+    if (hash === "#/") {
         return templateviews(hash);
     }
-    if (hash === '#/home') {
+    if (hash === "#/home") {
         return templateviews(hash);
     }
-    if (hash === '#/login') {
+    if (hash === "#/login") {
         return templateviews(hash);
     }
-    if (hash === '#/register') {
+    if (hash === "#/register") {
         return templateviews(hash);
     }
-    if (hash === '#/post') {
+    if (hash === "#/post") {
         return templateviews(hash);
     }
     return templateviews(hash);
 };
 
 // Cambia página frente a cambio de #
-window.addEventListener('hashchange', () => {
+window.addEventListener("hashchange", () => {
     changeRouter(window.location.hash);
 });
 //false estado por defecto
