@@ -90,7 +90,9 @@ export const readDataPost = async() => {
 export const createUser = (inputUser,inputPassword) =>{
     console.log("creando el usuario")
     createUserWithEmailAndPassword(auth,inputUser,inputPassword)
-    .then((user) => {
+    .then((userCredential) => {
+        const user = userCredential.user;
+        console.log (user)
         console.log('¡Creamos al usuario!');
     })
 
@@ -99,18 +101,30 @@ export const createUser = (inputUser,inputPassword) =>{
 
 //---------------FUNCION PARA INICIAR SESIÓN---------------------
 
-const singIn = async() => {
-    let email = document.getElementById("inputEmail").value;
+export const singIn = () => {
+    let email = document.getElementById("inputUser").value;
     let password = document.getElementById("inputPassword").value;
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((user) => {
-            // Signed in
-            // ...
-            console.log('sesión iniciada');
+    signInWithEmailAndPassword(auth,email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+               window.location.hash = "post"
         })
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
+
+            if (errorCode === "auth/user-not-found") {
+                root.querySelector("#mensajeErrorLogin").innerHTML = "usuario no regristrado";
+      
+              } else if (errorCode === "auth/wrong-password") {
+                root.querySelector("#mensajeErrorLogin").innerHTML = "Contraseña incorrecta";
+              }
+              else if (errorCode === "auth/invalid-email") {
+                root.querySelector("#mensajeErrorLogin").innerHTML = "Correo invalido";
+              }
+              else if (errorCode === "auth/internal-error") {
+                root.querySelector("#mensajeErrorLogin").innerHTML = "Ingrese contraseña";
+              }
         });
 }

@@ -1,4 +1,4 @@
-//import { singIn } from "../../firebase/firebaseConfig.js"
+import { singIn } from "../../firebase/firebaseConfig.js"
 export const login = () => {
     window.location.hash = '#/login';
     const loginContainer = document.createElement("div");
@@ -27,12 +27,16 @@ export const login = () => {
     
     const btnSign = loginContainer.querySelector("#btnConf")
     //console.log(btnSign)
-    if (btnSign) {
+   
         btnSign.addEventListener("click", () => {
-            console.log("btnConf");
+         
+
+        singIn()
+    
+
         });
 
-    }
-    console.log(loginContainer);
+    
+    //console.log(loginContainer);
     return loginContainer
 }
