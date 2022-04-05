@@ -28,6 +28,7 @@
     justify-content: center;
     align-items: center;
     background-image: url(./img/bgcover.png);
+    background-color: var(--black-color);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -51,7 +52,8 @@
 .container-img {
     justify-content: center;
     align-items: center;
-    margin: 1.5rem;
+    text-align: center;
+    margin: 1.3rem;
 }
 
 .google {
@@ -243,12 +245,10 @@ input[type="email" i] {
 
 /*ESTILOS LOGIN*/
 
-.inputUser {
+.containerLogin {
     display: grid;
-    margin-bottom: 10rem;
-    backdrop-filter: blur(0.3rem);
-    border: var(--white-brown-color) 0.3rem solid;
-    border-radius: 1.25rem;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -264,7 +264,6 @@ input[type="email" i] {
 label {
     font-family: "Baloo 2", cursive;
     font-size: 1.5rem;
-    padding-right: 1rem;
 }
 
 ::placeholder {
@@ -278,7 +277,6 @@ label {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    padding-bottom: 10rem;
 }
 
 .links {

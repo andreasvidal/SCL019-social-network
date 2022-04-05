@@ -27,8 +27,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { printComments } from "../lib/views/post.js";
-import { login } from "../lib/views/login.js";
-
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -61,12 +59,10 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
 
     const date = Timestamp.fromDate(new Date());
     const userId = auth.currentUser.uid;
-    
     /*const name = auth.currentUser.displayName;
       const likes = [];
       const likesCounter = 0;*/
     await addDoc(collection(db, "post"), {
-        
         inputTitle,
         textArea,
         date,
@@ -85,10 +81,8 @@ export const readDataPost = async() => {
     const q = query(collection(db, "post"), orderBy("date", "desc"));
     onSnapshot(q, (querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            
             const docPost = doc.data();
-            
-            printComments(docPost,doc.id);
+            printComments(docPost);
             //console.log(docPost)
         });
         return printComments;
@@ -132,20 +126,6 @@ export const singIn = async() => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                
-                if (errorCode === 'auth/invalid-email') {
-                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Email Invalido</p>";
-                    
-                   //---si no esta ingresado el corro, arroja mensaje--
-                  } else if (errorCode === 'auth/missing-email') {
-                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Ingresar Email</p>";
-            
-                  } else if (errorCode === 'auth/internal-error') {
-                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Rellene todos los campos</p>";
-            
-                  } else if (errorCode === 'auth/wrong-password') {
-                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Minimo 6 caracteres</p>";
-                  }
             });
     }
     //LOG UOT
@@ -162,14 +142,5 @@ export const logOut = () => {
 // Borrar datos
 export const deletePost = async(id) => {
     await deleteDoc(doc(db, "post", id));
-    console.log(await deletePost);
-};
-
-// Editar datos
-export const editPost = async(id, inputTitle, textArea) => {
-    const refreshPost = doc(db, "post", id);
-    await updateDoc(refreshPost, {
-        inputTitle: inputTitle,
-        textArea: textArea
-    });
+    console.log(deletePost);
 };

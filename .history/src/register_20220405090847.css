@@ -13,12 +13,10 @@
 /*CONTENEDOR VISTA REGISTRO*/
 
 .inputRegister {
-    display: grid;
-    grid-template-columns: 2fr;
     backdrop-filter: blur(0.3rem);
     border: 0.3rem solid var(--white-brown-color);
     border-radius: 1.25rem;
-    padding: 0.5rem 8rem;
+    padding: 0.5rem 10rem;
 }
 
 
