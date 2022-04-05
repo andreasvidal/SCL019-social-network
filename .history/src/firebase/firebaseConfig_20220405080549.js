@@ -146,10 +146,9 @@ export const deletePost = async(id) => {
 };
 
 // Editar datos
-export const editPost = async(id, inputTitle, textArea) => {
-    const refreshPost = doc(db, "post", id);
+export const editPost = async(id, description) => {
+    const refreshPost = doc(db, 'posts', id);
     await updateDoc(refreshPost, {
-        inputTitle: inputTitle,
-        textArea: textArea
+        description: description,
     });
 };

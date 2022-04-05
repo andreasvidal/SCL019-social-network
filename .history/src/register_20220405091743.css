@@ -14,7 +14,8 @@
 
 .inputRegister {
     display: grid;
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 50px auto;
     backdrop-filter: blur(0.3rem);
     border: 0.3rem solid var(--white-brown-color);
     border-radius: 1.25rem;

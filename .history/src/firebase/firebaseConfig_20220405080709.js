@@ -147,7 +147,7 @@ export const deletePost = async(id) => {
 
 // Editar datos
 export const editPost = async(id, inputTitle, textArea) => {
-    const refreshPost = doc(db, "post", id);
+    const refreshPost = doc(db, 'posts', id);
     await updateDoc(refreshPost, {
         inputTitle: inputTitle,
         textArea: textArea

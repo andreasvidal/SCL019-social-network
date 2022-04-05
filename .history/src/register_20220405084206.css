@@ -13,12 +13,10 @@
 /*CONTENEDOR VISTA REGISTRO*/
 
 .inputRegister {
-    display: grid;
-    grid-template-columns: 2fr;
     backdrop-filter: blur(0.3rem);
     border: 0.3rem solid var(--white-brown-color);
     border-radius: 1.25rem;
-    padding: 0.5rem 8rem;
+    padding: 0.5rem 10rem;
 }
 
 
@@ -38,7 +36,7 @@
 .txtSing {
     justify-content: center;
     text-align: center;
-    margin: 1.3rem;
+    margin: 1rem;
     font-family: "Baloo 2", cursive;
     border-top: solid;
     padding-bottom: 1rem;
@@ -54,7 +52,6 @@
 
 .passCont {
     padding-bottom: 1rem;
-    align-items: center;
 }
 
 .btnConfirmation {

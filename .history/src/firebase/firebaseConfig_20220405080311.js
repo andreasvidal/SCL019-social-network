@@ -142,14 +142,5 @@ export const logOut = () => {
 // Borrar datos
 export const deletePost = async(id) => {
     await deleteDoc(doc(db, "post", id));
-    console.log(await deletePost);
-};
-
-// Editar datos
-export const editPost = async(id, inputTitle, textArea) => {
-    const refreshPost = doc(db, "post", id);
-    await updateDoc(refreshPost, {
-        inputTitle: inputTitle,
-        textArea: textArea
-    });
+    console.log(deletePost);
 };
