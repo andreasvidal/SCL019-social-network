@@ -22,13 +22,16 @@ export const register = () => {
             <input type="email" class="inputEmail" id="inputEmail" placeholder="asdf123@email.com" required>
 
         </div>
+        
         <div class="passCont">
             <label for="pasword" class="labelPassword">Password</label>
             <input type="password" class="password" id="inputPassword" placeholder="xxxxxx" required>
         </div>
 
         <button type= "button" class="btnConfirmation" id="btnConf">Register</button>
-    
+       
+        <p class="containerErrorRegister" id="containerErrorRegister"></p>
+
     </div>`
 
 

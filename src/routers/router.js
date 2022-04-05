@@ -9,7 +9,7 @@ const templateviews = (hash) => {
     const containerRoot = document.getElementById("root");
     containerRoot.innerHTML = " "; // Reiniciando el Div a vacio;
     switch (hash) {
-        case " ":
+        //case " ":
         case "#/home":
             containerRoot.appendChild(home());
             break;
