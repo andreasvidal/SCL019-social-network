@@ -1,4 +1,4 @@
-import { deletePost } from "../../firebase/firebaseConfig.js"
+import { deletePost,editPost } from "../../firebase/firebaseConfig.js"
 export const printComments = (docPost,id) => {
     const containerPostvoid = document.querySelector("#containerPostAdd");
 
@@ -19,35 +19,49 @@ export const printComments = (docPost,id) => {
     //if (docPost.data.userId === auth.currentUser.uid) {
     userEdit = `
     <div id="btnsEdit">
-    <button class="btnDelete" id="btnDelete" data-id="${id}">
-        <i class="fa-solid fa-trash"></i> Delete
-      </button>
-    <button class="btnEdit" data-id="${id}">
-        <i class="fa-solid fa-pen-to-square"></i> Edit
-      </button>
-    <button class="saveBtn" id="saveBtn" data-id="${id}">
-        <i class="fa-thin fa-floppy-disk"></i> Save</button>
-</div>
+        <button class="btnDelete" id="btnDelete" data-id="${id}">
+            <i class="fa-solid fa-trash"></i> Delete
+        </button>
+        <button class="btnEdit" id="btnEdit" data-id="${id}">
+            <i class="fa-solid fa-pen-to-square"></i> Edit
+        </button>
+        <button class="saveBtn" id="saveBtn" data-id="${id}">
+            <i class="fa-thin fa-floppy-disk"></i> Save</button>
+    </div>
         
     `;
-    // }
-    // }
-    //console.log(html)
+    
     containerPostvoid.innerHTML += html + userEdit
 
 
-    //Evento para borrar post
+    //---------------- EVENTO PARA ELIMINAR POST -------------------------
+
     const btnDelete = containerPostvoid.querySelectorAll(".btnDelete");
-    btnDelete.forEach((docPost) => {
-        docPost.addEventListener("click", async() => {
-            // eslint-disable-next-line no-restricted-globals
+    console.log(btnDelete)
+    btnDelete.forEach((element) => {
+        element.addEventListener("click", async() => {
             const deleteConfirm = confirm('¿Estás seguro de eliminar este Post?');
             if (deleteConfirm) {
-               await deletePost(docPost.dataset.id);
+               await deletePost(element.dataset.id);
                 
             } 
         });
     });
 
+    //------------------ EVENTO PARA EDITAR POST ---------------------
+
+    const btnEdit = containerPostvoid.querySelectorAll(".btnEdit");
+    console.log(btnEdit)
+    btnDelete.forEach((element) => {
+        element.addEventListener("click", async() => {
+            await editPost(element.dataset.id);
+        })
+    })
+
     return printComments;
+
+   
+
+
+
 };

@@ -33,7 +33,9 @@ import { login } from "../lib/views/login.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+
+// -------------------Firebase configuration----------------------
+
 const firebaseConfig = {
     apiKey: "AIzaSyCiGtmDy7pXtGBhp7DQ-P7kNTGPLcYCT1w",
     authDomain: "scl019-social-network.firebaseapp.com",
@@ -87,6 +89,7 @@ export const readDataPost = async() => {
         querySnapshot.forEach((doc) => {
             
             const docPost = doc.data();
+            console.log(docPost)
             
             printComments(docPost,doc.id);
             //console.log(docPost)
@@ -111,10 +114,12 @@ export const createUser = (inputUser, inputPassword) => {
 };
 
 
+
 //---------------FUNCION PARA INICIAR SESIÓN---------------------
 //usuario: 1234
 //correo: 1234@gmail.com
 //contraseña: 123456
+const auth = getAuth();
 
 export const singIn = async() => {
 
@@ -147,9 +152,11 @@ export const singIn = async() => {
                     root.querySelector("#containerErrorLogin").innerHTML = "<p>Minimo 6 caracteres</p>";
                   }
             });
-    }
-    //LOG UOT
-const auth = getAuth();
+}
+
+//--------------------------------LOG OUT----------------------------------------
+
+
 export const logOut = () => {
     signOut(auth).then(() => {
         // Sign-out successful.
@@ -159,13 +166,15 @@ export const logOut = () => {
     })
 }
 
-// Borrar datos
+//-----------------------------ELIMINAR POST-------------------------------------------
+
 export const deletePost = async(id) => {
     await deleteDoc(doc(db, "post", id));
-    console.log(await deletePost);
+    
 };
 
-// Editar datos
+//-----------------------------------EDITAR POST-----------------------------------------
+
 export const editPost = async(id, inputTitle, textArea) => {
     const refreshPost = doc(db, "post", id);
     await updateDoc(refreshPost, {
