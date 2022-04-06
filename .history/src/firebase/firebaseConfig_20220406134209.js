@@ -180,7 +180,7 @@ export const checkGoogle = async() => {
             const token = credential.accessToken;
             console.log("inicio sesion google")
             console.log(token);
-            // INFO USUARIO REGISTRADO.
+            // The signed-in user info.
             const user = result.user;
             window.location.hash = "#/post"
             sessionStorage.setItem('userId', user.uid);

@@ -8,7 +8,7 @@ export const home = () => {
     <h1 class="titleWelcome">¡Bienvenidos!</h1>
     <div class="containerBtns">
         <a href="#/login" class="links">Log In </a>
-        <a href="#/home" class="links" id="googleLinks">Sign Up with <img src="./img/google.png" alt="google" class="google"></a>
+        <a href="#/post" class="links" id="googleLinks">Sign Up with <img src="./img/google.png" alt="google" class="google"></a>
         <a href="#/register" class="links">Register </a>
     </div>
 </div>
