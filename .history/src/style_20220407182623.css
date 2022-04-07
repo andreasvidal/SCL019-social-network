@@ -136,10 +136,6 @@
     text-align: center;
 }
 
-.titlePost {
-    margin-top: 5rem;
-}
-
 
 /*INPUT TITLE*/
 
@@ -251,7 +247,6 @@ input[type="email" i] {
     display: grid;
     align-items: center;
     justify-items: end;
-    margin: -5rem 2rem 0 0;
 }
 
 .counter {

@@ -49,8 +49,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 1rem;
-    margin-top: 10%;
-    z-index: 3;
+    margin-top: 5%;
 }
 
 .container-img {
@@ -118,7 +117,7 @@
 .formPost {
     display: grid;
     position: fixed;
-    margin-top: 10%;
+    margin-top: 2%;
     margin-left: 2%;
 }
 
@@ -134,10 +133,6 @@
     background-color: transparent;
     border-radius: 5rem;
     text-align: center;
-}
-
-.titlePost {
-    margin-top: 5rem;
 }
 
 
@@ -175,7 +170,6 @@ input[type="email" i] {
 .commentDone {
     background-color: var(--brown-light-color);
     border-radius: 0.5rem;
-    margin: 1rem;
 }
 
 
@@ -191,12 +185,16 @@ input[type="email" i] {
 
 /*btnsEdition*/
 
+.btnsEdition {
+    height: fit-content;
+    margin-top: 1rem;
+}
+
 
 /*btn edition container*/
 
 .btnsEdition {
     display: grid;
-    height: fit-content;
     grid-column-start: 1;
     grid-column-end: 3;
 }
@@ -251,7 +249,6 @@ input[type="email" i] {
     display: grid;
     align-items: center;
     justify-items: end;
-    margin: -5rem 2rem 0 0;
 }
 
 .counter {
