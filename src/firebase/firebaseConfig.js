@@ -8,8 +8,6 @@ import {
     getFirestore,
     collection,
     addDoc,
-    getDocs,
-    getDoc,
     doc,
     onSnapshot,
     query,
@@ -23,11 +21,12 @@ import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    signInWithPopup,
+    GoogleAuthProvider,
     signOut
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { printComments } from "../lib/views/post.js";
-import { login } from "../lib/views/login.js";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -63,7 +62,13 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
 
     const date = Timestamp.fromDate(new Date());
     const userId = auth.currentUser.uid;
-
+    let userName;
+    if (auth.currentUser.displayName === null) {
+        const newName = auth.currentUser.email.split("@");
+        userName = newName[0];
+    } else {
+        userName = auth.currentUser.displayName;
+    }
     /*const name = auth.currentUser.displayName;
       const likes = [];
       const likesCounter = 0;*/
@@ -73,6 +78,8 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
         textArea,
         date,
         userId,
+        name: userName
+        
     }); //guardamos la coleccion post
 };
 
@@ -144,7 +151,7 @@ export const singIn = async() => {
                     root.querySelector("#containerErrorLogin").innerHTML = "<p>Rellene todos los campos</p>";
 
                 } else if (errorCode === 'auth/wrong-password') {
-                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Minimo 6 caracteres</p>";
+                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Contraseña minimo 6 caracteres</p>";
                 }
             });
 }
@@ -168,12 +175,42 @@ export const deletePost = async(id) => {
     console.log(deletePost);
 };
 
-//-----------------------------------EDITAR POST-----------------------------------------
+// --------------- EDITAR POST -------------------------
 
-export const editPost = async(id, inputTitle, textArea) => {
+export const editPost = async(id, textArea) => {
     const refreshPost = doc(db, "post", id);
     await updateDoc(refreshPost, {
-        inputTitle: inputTitle,
         textArea: textArea
     });
 };
+
+//------------- INICIAR SESIÓN CON GOOGLE -----------------
+
+export const checkGoogle = async() => {
+    console.log(checkGoogle)
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            console.log("inicio sesion google")
+            console.log(token);
+            // INFO USUARIO REGISTRADO.
+            const user = result.user;
+            window.location.hash = "#/post"
+            sessionStorage.setItem('userId', user.uid);
+            console.log(user)
+                // ...
+        }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+}

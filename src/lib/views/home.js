@@ -1,4 +1,4 @@
-//import { dataUser } from "../../firebase/firebaseConfig.js"
+import { checkGoogle } from "../../firebase/firebaseConfig.js"
 export const home = () => {
     window.location.hash = '#/home';
     const viewHome = document.createElement('div');
@@ -8,11 +8,20 @@ export const home = () => {
     <h1 class="titleWelcome">¡Bienvenidos!</h1>
     <div class="containerBtns">
         <a href="#/login" class="links">Log In </a>
-        <a href="#/" class="links">Sign Up with <img src="./img/google.png" alt="google" class="google"></a>
+        <a href="#/home" class="links" id="googleLinks">Sign Up with <img src="./img/google.png" alt="google" class="google"></a>
         <a href="#/register" class="links">Register </a>
     </div>
 </div>
 `;
     viewHome.innerHTML += formHome;
+    
+    //------------------BTN PARA INICIO SESION CON GOOGLE-------------------
+
+    const singGoogle = viewHome.querySelector("#googleLinks")
+    console.log(singGoogle)
+    singGoogle.addEventListener("click", async() => {
+        await checkGoogle();
+        console.log(checkGoogle);
+    });
     return viewHome
 };

@@ -1,11 +1,11 @@
-import { deletePost } from "../../firebase/firebaseConfig.js"
+import { deletePost, editPost } from "../../firebase/firebaseConfig.js"
 export const printComments = (docPost, id) => {
     const containerPostvoid = document.querySelector("#containerPostAdd");
 
     const html = `<div id="containerPost">
         
         <h3 class="titlePost">${docPost.inputTitle}</h3>
-        <textarea class="commentDone" readonly>${docPost.textArea}</textarea>
+        <textarea class="commentDone" id="commentDone-${textArea.value}" readonly>${docPost.textArea}</textarea>
         <div class="likeContainer">
         <input type="number" class="counter" id="counter"  value="0" name="" readonly />
         <button class="like" id="like"> Like
@@ -15,11 +15,11 @@ export const printComments = (docPost, id) => {
     </div>
     `
 
-    let userEdit = " ";
+    let userEdit = "";
     //if (docPost.data.userId === auth.currentUser.uid) {
     userEdit = `
     <div id="btnsEdition">
-    <button class="btnDelete" id="btnDelete" data-id="${id}">
+    <button class="btnDelete" id="btnDelete${textArea.value}" data-id="${id}">
         <i class="fa-solid fa-trash"></i> Delete
       </button>
     <button class="btnEdit" data-id="${id}">
@@ -39,6 +39,7 @@ export const printComments = (docPost, id) => {
     //---------------- EVENTO PARA ELIMINAR POST -------------------------
 
     const btnDelete = containerPostvoid.querySelectorAll(".btnDelete");
+    console.log(btnDelete)
     btnDelete.forEach((docPost) => {
         docPost.addEventListener("click", async(post) => {
             // eslint-disable-next-line no-restricted-globals
