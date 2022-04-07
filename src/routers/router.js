@@ -5,11 +5,12 @@ import { register } from '../lib/views/register.js';
 
 
 const templateviews = (hash) => {
-    //window.location.hash = "#/";
+
+    const router = hash.substring(0); 
     const containerRoot = document.getElementById("root");
     containerRoot.innerHTML = " "; // Reiniciando el Div a vacio;
-    switch (hash) {
-        //case " ":
+    switch (router) {
+        case "":
         case "#/home":
             containerRoot.appendChild(home());
             break;
@@ -29,9 +30,9 @@ const templateviews = (hash) => {
 };
 
 export const changeRouter = (hash) => {
-    if (hash === "#/") {
+    /* if (hash === "#/") {
         return templateviews(hash);
-    }
+    } */
     if (hash === "#/home") {
         return templateviews(hash);
     }

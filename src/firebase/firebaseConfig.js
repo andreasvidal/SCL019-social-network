@@ -60,7 +60,6 @@ const db = getFirestore(app);
 
 export const createPost = async(inputTitle, textArea) => { // Add a new document with a generated id.
 
-    const date = Timestamp.fromDate(new Date());
     const userId = auth.currentUser.uid;
     let userName;
     if (auth.currentUser.displayName === null) {
@@ -76,11 +75,12 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
 
         inputTitle,
         textArea,
-        date,
+        date: Date(Date.now()),
         userId,
         name: userName
         
     }); //guardamos la coleccion post
+    
 };
 
 
@@ -121,7 +121,7 @@ export const createUser = (inputUser, inputPassword) => {
 //usuario: 1234
 //correo: 1234@gmail.com
 //contraseña: 123456
-const auth = getAuth();
+export const auth = getAuth();
 
 export const singIn = async() => {
 
