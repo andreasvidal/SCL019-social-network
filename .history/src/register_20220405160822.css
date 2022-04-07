@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Baloo 2", cursive;
+    font-family: "Bonheur Royale", cursive;
+    src: url("https://fonts.googleapis.com/css2?family=Baloo+2&family=Bonheur+Royale&display=swap");
+}
+
+
+/*CONTENEDOR VISTA REGISTRO*/
+
+.inputRegister {
+    display: grid;
+    grid-template-columns: 2fr;
+    backdrop-filter: blur(0.3rem);
+    border: 0.3rem solid var(--white-brown-color);
+    border-radius: 1.25rem;
+    padding: 0.5rem 8rem;
+    padding-bottom: 20rem;
+}
+
+
+/*IMG HEADER VISTA LOGIN*/
+
+.imgLogo,
+.container-img {
+    text-align: center;
+}
+
+
+/*CONTENEDOR VISTA LOGIN*/
+
+
+/*TXT BIENVENIDA*/
+
+.txtSing {
+    justify-content: center;
+    text-align: center;
+    margin: 1.3rem;
+    font-family: "Baloo 2", cursive;
+    border-top: solid;
+    padding-bottom: 1rem;
+}
+
+
+/*USERNAME, MAIL Y PASSWORD CONTAINER*/
+
+.userNameCont,
+.mailCont,
+.passConts {
+    display: grid;
+    margin: 1rem;
+}
+
+
+/*BOTON REGISTRO*/
+
+.btnConfirmation {
+    margin: 1.7rem;
+}

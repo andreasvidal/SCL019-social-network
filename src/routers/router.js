@@ -5,6 +5,7 @@ import { register } from '../lib/views/register.js';
 
 
 const templateviews = (hash) => {
+    //window.location.hash = "#/";
     const containerRoot = document.getElementById("root");
     containerRoot.innerHTML = " "; // Reiniciando el Div a vacio;
     switch (hash) {

@@ -13,18 +13,18 @@ export const register = () => {
         </h2>
         
         <div class="userNameCont">
-            <label for="labelUser" class="inputUserLabel">UserName:</label>
+            <label for="labelUser" class="inputUserLabel">UserName</label>
             <input type="text" class="inputUserName" id="inputUserName" placeholder="user" required>
 
         </div>
         <div class="mailCont">
-            <label for="labelUser" class="inputUserLabel">Email:</label>
-            <input type="text" class="inputEmail" id="inputEmail" placeholder="asdf123@email.com" required>
+            <label for="labelUser" class="inputUserLabel">Email</label>
+            <input type="email" class="inputEmail" id="inputEmail" placeholder="asdf123@email.com" required>
 
         </div>
         
         <div class="passCont">
-            <label for="pasword" class="labelPassword">Password:</label>
+            <label for="pasword" class="labelPassword">Password</label>
             <input type="password" class="password" id="inputPassword" placeholder="xxxxxx" required>
         </div>
 

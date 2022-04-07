@@ -63,35 +63,30 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
 
     const date = Timestamp.fromDate(new Date());
     const userId = auth.currentUser.uid;
-    
+
     /*const name = auth.currentUser.displayName;
       const likes = [];
       const likesCounter = 0;*/
     await addDoc(collection(db, "post"), {
-        
+
         inputTitle,
         textArea,
         date,
-        userId
+        userId,
     }); //guardamos la coleccion post
 };
 
 
 // --------------------LEER DATOS POST----------------------
 
-//const getTask = () => getDocs(collection(db, "post"));
-
 export const readDataPost = async() => {
-    //const querySnapshot = await getTask();
 
     const q = query(collection(db, "post"), orderBy("date", "desc"));
     onSnapshot(q, (querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            
+
             const docPost = doc.data();
-            console.log(docPost)
-            
-            printComments(docPost,doc.id);
+            printComments(docPost, doc.id);
             //console.log(docPost)
         });
         return printComments;
@@ -125,11 +120,11 @@ export const singIn = async() => {
 
         let email = document.getElementById("inputEmail").value;
         let password = document.getElementById("inputPassword").value;
-
+        const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                window.location.hash = '#/post'
+                window.location.hash = "#/post"
                     // Signed in
                     // ...
                 console.log('sesión iniciada');
@@ -137,20 +132,20 @@ export const singIn = async() => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                
+
                 if (errorCode === 'auth/invalid-email') {
                     root.querySelector("#containerErrorLogin").innerHTML = "<p>Email Invalido</p>";
-                    
-                   //---si no esta ingresado el corro, arroja mensaje--
-                  } else if (errorCode === 'auth/missing-email') {
+
+                    //---si no esta ingresado el corro, arroja mensaje--
+                } else if (errorCode === 'auth/missing-email') {
                     root.querySelector("#containerErrorLogin").innerHTML = "<p>Ingresar Email</p>";
-            
-                  } else if (errorCode === 'auth/internal-error') {
+
+                } else if (errorCode === 'auth/internal-error') {
                     root.querySelector("#containerErrorLogin").innerHTML = "<p>Rellene todos los campos</p>";
-            
-                  } else if (errorCode === 'auth/wrong-password') {
+
+                } else if (errorCode === 'auth/wrong-password') {
                     root.querySelector("#containerErrorLogin").innerHTML = "<p>Minimo 6 caracteres</p>";
-                  }
+                }
             });
 }
 
@@ -170,7 +165,7 @@ export const logOut = () => {
 
 export const deletePost = async(id) => {
     await deleteDoc(doc(db, "post", id));
-    
+    console.log(deletePost);
 };
 
 //-----------------------------------EDITAR POST-----------------------------------------
