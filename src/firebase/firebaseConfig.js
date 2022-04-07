@@ -32,7 +32,9 @@ import { printComments } from "../lib/views/post.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+
+// -------------------Firebase configuration----------------------
+
 const firebaseConfig = {
     apiKey: "AIzaSyCiGtmDy7pXtGBhp7DQ-P7kNTGPLcYCT1w",
     authDomain: "scl019-social-network.firebaseapp.com",
@@ -60,7 +62,13 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
 
     const date = Timestamp.fromDate(new Date());
     const userId = auth.currentUser.uid;
-
+    let userName;
+    if (auth.currentUser.displayName === null) {
+        const newName = auth.currentUser.email.split("@");
+        userName = newName[0];
+    } else {
+        userName = auth.currentUser.displayName;
+    }
     /*const name = auth.currentUser.displayName;
       const likes = [];
       const likesCounter = 0;*/
@@ -69,6 +77,8 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
         textArea: dataset.id,
         date,
         userId,
+        name: userName
+        
     }); //guardamos la coleccion post
 };
 
@@ -105,10 +115,12 @@ export const createUser = (inputUser, inputPassword) => {
 };
 
 
+
 //---------------FUNCION PARA INICIAR SESIÓN---------------------
 //usuario: 1234
 //correo: 1234@gmail.com
 //contraseña: 123456
+const auth = getAuth();
 
 export const singIn = async() => {
 
@@ -141,9 +153,11 @@ export const singIn = async() => {
                     root.querySelector("#containerErrorLogin").innerHTML = "<p>Contraseña minimo 6 caracteres</p>";
                 }
             });
-    }
-    //LOG UOT
-const auth = getAuth();
+}
+
+//--------------------------------LOG OUT----------------------------------------
+
+
 export const logOut = () => {
     signOut(auth).then(() => {
         // Sign-out successful.
@@ -153,20 +167,29 @@ export const logOut = () => {
     })
 }
 
-// Borrar datos
+//-----------------------------ELIMINAR POST-------------------------------------------
+
 export const deletePost = async(id) => {
     await deleteDoc(doc(db, "post", id));
     console.log(deletePost);
 };
 
+<<<<<<< HEAD
 // Editar datos
 export const editPost = async(id) => {
+=======
+// --------------- EDITAR POST -------------------------
+
+export const editPost = async(id, textArea) => {
+>>>>>>> 8519d9ec9d279bd985188ea99854d7bf3de7ca7c
     const refreshPost = doc(db, "post", id);
     await updateDoc(refreshPost, {
         textArea: textArea
     });
 };
-//iniciar sesion con google
+
+//------------- INICIAR SESIÓN CON GOOGLE -----------------
+
 export const checkGoogle = async() => {
     console.log(checkGoogle)
     const auth = getAuth();

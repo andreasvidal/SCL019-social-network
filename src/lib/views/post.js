@@ -36,7 +36,8 @@ export const printComments = (docPost, id) => {
     containerPostvoid.innerHTML += html + userEdit
 
 
-    //Evento para borrar post
+    //---------------- EVENTO PARA ELIMINAR POST -------------------------
+
     const btnDelete = containerPostvoid.querySelectorAll(".btnDelete");
     btnDelete.forEach((docPost) => {
         docPost.addEventListener("click", async(post) => {
@@ -50,15 +51,21 @@ export const printComments = (docPost, id) => {
             }
         });
     });
-    //---------EVENTO PARA EDITAR COMENTARIO
-    const btnEdit = containerPostvoid.querySelectorAll(".btnEdit");
-    btnEdit.forEach((docPost) => {
-        docPost.addEventListener("click", async(e) => {
-            const doc = await editPost(e.target.dataset.id)
-            console.log(doc)
 
+    //------------------ EVENTO PARA EDITAR POST ---------------------
+
+    const btnEdit = containerPostvoid.querySelectorAll(".btnEdit");
+    console.log(btnEdit)
+    btnDelete.forEach((element) => {
+        element.addEventListener("click", async() => {
+            await editPost(element.dataset.id);
         })
     })
 
     return printComments;
+
+   
+
+
+
 };

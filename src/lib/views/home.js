@@ -14,6 +14,7 @@ export const home = () => {
 </div>
 `;
     viewHome.innerHTML += formHome;
+    
     //------------------BTN PARA INICIO SESION CON GOOGLE-------------------
 
     const singGoogle = viewHome.querySelector("#googleLinks")
