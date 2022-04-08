@@ -25,6 +25,7 @@ export const printComments = (docPost, id) => {
     <button class="btnDelete" id="btnDelete" data-id="${id}">
         <i class="fa-solid fa-trash"></i> Delete
       </button>
+
 </div>
         
     `;

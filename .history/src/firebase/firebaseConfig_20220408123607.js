@@ -103,7 +103,7 @@ export const createUser = (inputUser, inputPassword) => {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log(user)
-            confirm('¡Ya puedes comenzar, genial no!');
+            confirm('¡Creamos al usuario!');
             window.location.hash = '#/post';
         })
         .catch((error) => {
