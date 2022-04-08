@@ -72,7 +72,6 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
       const likes = [];
       const likesCounter = 0;*/
     await addDoc(collection(db, "post"), {
-
         inputTitle,
         textArea,
         date: Date(Date.now()),

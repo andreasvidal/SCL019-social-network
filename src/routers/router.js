@@ -6,10 +6,10 @@ import { register } from '../lib/views/register.js';
 
 const templateviews = (hash) => {
 
-    const router = hash.substring(0); 
+    //const router = hash.substring(0); 
     const containerRoot = document.getElementById("root");
     containerRoot.innerHTML = " "; // Reiniciando el Div a vacio;
-    switch (router) {
+    switch (hash) {
         case "":
         case "#/home":
             containerRoot.appendChild(home());
