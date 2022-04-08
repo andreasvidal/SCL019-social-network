@@ -76,6 +76,7 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
         name: userName
 
     }); //guardamos la coleccion post
+    
 };
 
 
@@ -116,7 +117,6 @@ export const createUser = (inputUser, inputPassword) => {
 //usuario: 1234
 //correo: 1234@gmail.com
 //contraseña: 123456
-
 
 export const singIn = async() => {
 

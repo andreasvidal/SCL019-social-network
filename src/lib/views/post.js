@@ -2,15 +2,18 @@ import { deletePost, editPost, auth } from "../../firebase/firebaseConfig.js"
 export const printComments = (docPost, id) => {
     const containerPostvoid = document.querySelector("#containerPostAdd");
 
-    const html = `<div id="containerPost">
-        
+    const html = 
+
+    `<div id="containerPost">
+        <h2 class="userName" id="userName">${docPost.name} </h2>
+        <h4 class="date" id="date">${docPost.date}</h4>
         <h3 class="titlePost">${docPost.inputTitle}</h3>
         <textarea class="commentDone" id="commentDone-${textArea.value}" readonly>${docPost.textArea}</textarea>
         <div class="likeContainer">
-        <input type="number" class="counter" id="counter"  value="0" name="" readonly />
-        <button class="like" id="like"> Like
-      <i class="fa-solid fa-heart"></i>
-        </button>
+            <input type="number" class="counter" id="counter"  value="0" name="" readonly />
+            <button class="like" id="like"> Like
+            <i class="fa-solid fa-heart"></i>
+            </button>
         </div>
     </div>
     `
@@ -55,7 +58,7 @@ export const printComments = (docPost, id) => {
     //------------------ EVENTO PARA EDITAR POST ---------------------
 
     const btnEdit = containerPostvoid.querySelectorAll(".btnEdit");
-    console.log(btnEdit)
+    //console.log(btnEdit)
     btnDelete.forEach((element) => {
         element.addEventListener("click", async() => {
             await editPost(element.dataset.id);
