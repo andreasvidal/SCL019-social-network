@@ -27,9 +27,11 @@
     column-gap: initial;
     justify-content: center;
     align-items: center;
-    background: url(./img/bgcover.png) no-repeat center center;
-    min-height: 100%;
+    background-image: url(./img/bgcover.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #995b36;
+    width: 100%;
     scroll-behavior: smooth;
 }
 
@@ -297,8 +299,11 @@ input[type="email" i] {
 .inputUser {
     display: grid;
     grid-auto-rows: 8rem 6rem 0.1rem 1rem;
-    padding: 2rem;
+    grid-auto-columns: 1fr 1fr;
+    padding: 3rem;
     margin-bottom: 10rem;
+    backdrop-filter: blur(0.3rem);
+    border: var(--white-brown-color) 0.3rem solid;
     border-radius: 1.25rem;
     justify-content: space-evenly;
 }

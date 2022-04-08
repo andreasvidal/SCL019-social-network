@@ -27,7 +27,7 @@
     column-gap: initial;
     justify-content: center;
     align-items: center;
-    background: url(./img/bgcover.png) no-repeat center center;
+    background-image: url(./img/bgcover.png) no-repeat center center;
     min-height: 100%;
     background-size: cover;
     scroll-behavior: smooth;
@@ -297,7 +297,7 @@ input[type="email" i] {
 .inputUser {
     display: grid;
     grid-auto-rows: 8rem 6rem 0.1rem 1rem;
-    padding: 2rem;
+    padding: 3rem;
     margin-bottom: 10rem;
     border-radius: 1.25rem;
     justify-content: space-evenly;

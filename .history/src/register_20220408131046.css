@@ -11,6 +11,8 @@
     display: grid;
     grid-template-rows: 6rem 7rem 4rem;
     justify-content: center;
+    backdrop-filter: blur(0.3rem);
+    border: 0.3rem solid var(--white-brown-color);
     border-radius: 1.25rem;
     padding: 0.5rem 8rem;
     padding-bottom: 20rem;
