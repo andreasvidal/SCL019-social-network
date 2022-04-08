@@ -103,8 +103,13 @@ export const createUser = (inputUser, inputPassword) => {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log(user)
+<<<<<<< HEAD
             confirm('¡Ya puedes comenzar, genial no!');
             window.location.hash = '#/post';
+=======
+            confirm('¡Creamos al usuario!');
+            window.location.hash = "#/post"
+>>>>>>> 1f82d0375d828ff43839d23ed9d50d4c150d4be5
         })
         .catch((error) => {
             const errorCode = error.code;
