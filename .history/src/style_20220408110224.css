@@ -164,7 +164,7 @@ input[type="email" i] {
     background-color: var(--opacity-bg-post);
     padding: 0.3rem;
     margin-bottom: 0.5rem;
-    height: 10rem;
+    height: 15rem;
     width: 30rem;
     margin-top: 1rem;
 }
@@ -197,8 +197,9 @@ input[type="email" i] {
 .btnsEdition {
     display: grid;
     height: fit-content;
+    grid-column-start: 1;
     grid-column-end: 3;
-    margin: 1rem;
+    margin-top: 10%;
 }
 
 #addPost:hover,
@@ -229,7 +230,6 @@ input[type="email" i] {
 /*conteneror post creados*/
 
 #containerPost {
-    display: table-column;
     border-radius: 1rem;
     background-color: var(--opacity-bg-post);
     margin-bottom: 3rem;
@@ -237,7 +237,10 @@ input[type="email" i] {
 
 .containerPostAdd {
     display: grid;
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-template-rows: 1fr;
     justify-items: right;
 }
 

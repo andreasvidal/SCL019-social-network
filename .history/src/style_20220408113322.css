@@ -198,7 +198,6 @@ input[type="email" i] {
     display: grid;
     height: fit-content;
     grid-column-end: 3;
-    margin: 1rem;
 }
 
 #addPost:hover,
