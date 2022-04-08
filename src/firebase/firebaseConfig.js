@@ -51,16 +51,14 @@ const app = initializeApp(firebaseConfig);
 // para poder acceder a la variable se exporta
 //dentro de const db se tiene acceso a firestore
 const db = getFirestore(app);
-//export const auth = getAuth(app); // Initialize Firebasegit
-//export const user = auth.currentUser; // autentifica el usuario
-//const auth = getAuth(app);
+export const auth = getAuth(app); // Initialize Firebasegit
+export const user = auth.currentUser; // autentifica el usuario
+
 
 
 //------------------- GUARDAR DATOS POST ---------------------------
-
+//const uid = user.uid;
 export const createPost = async(inputTitle, textArea) => { // Add a new document with a generated id.
-
-    const userId = auth.currentUser.uid;
     let userName;
     if (auth.currentUser.displayName === null) {
         const newName = auth.currentUser.email.split("@");
@@ -75,9 +73,9 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
         inputTitle,
         textArea,
         date: Date(Date.now()),
-        userId,
+        userId: auth.currentUser.uid,
         name: userName
-        
+
     }); //guardamos la coleccion post
     
 };
@@ -120,39 +118,38 @@ export const createUser = (inputUser, inputPassword) => {
 //usuario: 1234
 //correo: 1234@gmail.com
 //contraseña: 123456
-export const auth = getAuth();
 
 export const singIn = async() => {
 
-        let email = document.getElementById("inputEmail").value;
-        let password = document.getElementById("inputPassword").value;
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                window.location.hash = "#/post"
-                    // Signed in
-                    // ...
-                console.log('sesión iniciada');
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
+    let email = document.getElementById("inputEmail").value;
+    let password = document.getElementById("inputPassword").value;
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            window.location.hash = "#/post"
+                // Signed in
+                // ...
+            console.log('sesión iniciada');
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
 
-                if (errorCode === 'auth/invalid-email') {
-                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Email Invalido</p>";
+            if (errorCode === 'auth/invalid-email') {
+                root.querySelector("#containerErrorLogin").innerHTML = "<p>Email Invalido</p>";
 
-                    //---si no esta ingresado el corro, arroja mensaje--
-                } else if (errorCode === 'auth/missing-email') {
-                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Ingresar Email</p>";
+                //---si no esta ingresado el corro, arroja mensaje--
+            } else if (errorCode === 'auth/missing-email') {
+                root.querySelector("#containerErrorLogin").innerHTML = "<p>Ingresar Email</p>";
 
-                } else if (errorCode === 'auth/internal-error') {
-                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Rellene todos los campos</p>";
+            } else if (errorCode === 'auth/internal-error') {
+                root.querySelector("#containerErrorLogin").innerHTML = "<p>Rellene todos los campos</p>";
 
-                } else if (errorCode === 'auth/wrong-password') {
-                    root.querySelector("#containerErrorLogin").innerHTML = "<p>Contraseña minimo 6 caracteres</p>";
-                }
-            });
+            } else if (errorCode === 'auth/wrong-password') {
+                root.querySelector("#containerErrorLogin").innerHTML = "<p>Contraseña minimo 6 caracteres</p>";
+            }
+        });
 }
 
 //--------------------------------LOG OUT----------------------------------------
@@ -174,9 +171,8 @@ export const deletePost = async(id) => {
     console.log(deletePost);
 };
 
-// --------------- EDITAR POST -------------------------
-
-export const editPost = async(id, textArea) => {
+// Editar datos
+export const editPost = async(id) => {
     const refreshPost = doc(db, "post", id);
     await updateDoc(refreshPost, {
         textArea: textArea

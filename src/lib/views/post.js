@@ -17,25 +17,22 @@ export const printComments = (docPost, id) => {
         </div>
     </div>
     `
-
     let userEdit = "";
-
     const userId = auth.currentUser.uid;
-        console.log(userId)
-
     //if (docPost.data.userId === auth.currentUser.uid) {
-        userEdit = `
-        <div id="btnsEdition">
-            <button class="btnDelete" id="btnDelete${textArea.value}" data-id="${id}">
-                <i class="fa-solid fa-trash"></i> Delete
-            </button>
-            <button class="btnEdit" data-id="${id}">
-                <i class="fa-solid fa-pen-to-square"></i> Edit
-            </button>
-            <button class="saveBtn" id="saveBtn" data-id="${id}">
-                <i class="fa-thin fa-floppy-disk"></i> Save</button>
-        </div>   
-         `;
+    userEdit = `
+    <div id="btnsEdition" class="btnsEdition">
+    <button class="btnDelete" id="btnDelete${textArea.value}" data-id="${id}">
+        <i class="fa-solid fa-trash"></i> Delete
+      </button>
+    <button class="btnEdit" data-id="${id}">
+        <i class="fa-solid fa-pen-to-square"></i> Edit
+      </button>
+    <button class="saveBtn" id="saveBtn" data-id="${id}">
+        <i class="fa-thin fa-floppy-disk"></i> Save</button>
+</div>
+        
+    `;
     //}
     // }
     //console.log(html)
@@ -70,7 +67,7 @@ export const printComments = (docPost, id) => {
 
     return printComments;
 
-   
+
 
 
 
