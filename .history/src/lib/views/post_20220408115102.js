@@ -8,7 +8,7 @@ export const printComments = (docPost, id) => {
         <h2 class="userName" id="userName">${docPost.name} </h2>
         <h4 class="date" id="date">${docPost.date}</h4>
         <h3 class="titlePost">${docPost.inputTitle}</h3>
-        <textarea class="commentDone" id="commentDone" readonly>${docPost.textArea}</textarea>
+        <textarea class="commentDone" id="commentDone-${textArea.value}" readonly>${docPost.textArea}</textarea>
         <div class="likeContainer">
             <input type="number" class="counter" id="counter"  value="0" name="" readonly />
             <button class="like" id="like"> Like

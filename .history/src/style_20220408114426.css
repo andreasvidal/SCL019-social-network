@@ -128,23 +128,12 @@
 .textTitle,
 .descrpTitle,
 .textarea,
-.titlePost,
-.userName {
+.titlePost {
     font-family: "Baloo 2", cursive;
     font-size: 1.5rem;
     background-color: transparent;
     border-radius: 5rem;
-    margin: 0 0 0 2rem;
-}
-
-.date {
-    font-family: "Baloo 2", cursive;
-    font-size: .7rem;
-    text-align: right;
-}
-
-.userName {
-    color: var(--white-brown-color);
+    text-align: center;
 }
 
 .titlePost {
@@ -243,7 +232,7 @@ input[type="email" i] {
     display: table-column;
     border-radius: 1rem;
     background-color: var(--opacity-bg-post);
-    margin: 1rem 0 3rem 0;
+    margin-bottom: 1rem 0 3rem 0;
 }
 
 .containerPostAdd {

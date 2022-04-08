@@ -8,7 +8,7 @@ export const printComments = (docPost, id) => {
         <h2 class="userName" id="userName">${docPost.name} </h2>
         <h4 class="date" id="date">${docPost.date}</h4>
         <h3 class="titlePost">${docPost.inputTitle}</h3>
-        <textarea class="commentDone" id="commentDone" readonly>${docPost.textArea}</textarea>
+        <textarea class="commentDone" id="commentDone-${textArea.value}" readonly>${docPost.textArea}</textarea>
         <div class="likeContainer">
             <input type="number" class="counter" id="counter"  value="0" name="" readonly />
             <button class="like" id="like"> Like
@@ -42,7 +42,6 @@ export const printComments = (docPost, id) => {
     //---------------- EVENTO PARA ELIMINAR POST -------------------------
 
     const btnDelete = containerPostvoid.querySelectorAll(".btnDelete");
-    console.log(btnDelete)
     btnDelete.forEach((docPost) => {
         docPost.addEventListener("click", async(post) => {
             // eslint-disable-next-line no-restricted-globals
@@ -58,13 +57,13 @@ export const printComments = (docPost, id) => {
 
     //------------------ EVENTO PARA EDITAR POST ---------------------
 
-    /*const btnEdit = containerPostvoid.querySelectorAll(".btnEdit");
+    const btnEdit = containerPostvoid.querySelectorAll(".btnEdit");
     //console.log(btnEdit)
     btnDelete.forEach((element) => {
         element.addEventListener("click", async() => {
             await editPost(element.dataset.id);
         })
-    })*/
+    })
 
     return printComments;
 

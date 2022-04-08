@@ -129,18 +129,13 @@
 .descrpTitle,
 .textarea,
 .titlePost,
-.userName {
+.userName,
+.date {
     font-family: "Baloo 2", cursive;
     font-size: 1.5rem;
     background-color: transparent;
     border-radius: 5rem;
-    margin: 0 0 0 2rem;
-}
-
-.date {
-    font-family: "Baloo 2", cursive;
-    font-size: .7rem;
-    text-align: right;
+    text-align: center;
 }
 
 .userName {
