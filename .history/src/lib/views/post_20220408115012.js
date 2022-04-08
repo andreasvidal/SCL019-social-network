@@ -58,13 +58,13 @@ export const printComments = (docPost, id) => {
 
     //------------------ EVENTO PARA EDITAR POST ---------------------
 
-    /*const btnEdit = containerPostvoid.querySelectorAll(".btnEdit");
+    const btnEdit = containerPostvoid.querySelectorAll(".btnEdit");
     //console.log(btnEdit)
     btnDelete.forEach((element) => {
         element.addEventListener("click", async() => {
             await editPost(element.dataset.id);
         })
-    })*/
+    })
 
     return printComments;
 

@@ -42,7 +42,6 @@ export const printComments = (docPost, id) => {
     //---------------- EVENTO PARA ELIMINAR POST -------------------------
 
     const btnDelete = containerPostvoid.querySelectorAll(".btnDelete");
-    console.log(btnDelete)
     btnDelete.forEach((docPost) => {
         docPost.addEventListener("click", async(post) => {
             // eslint-disable-next-line no-restricted-globals
@@ -58,13 +57,13 @@ export const printComments = (docPost, id) => {
 
     //------------------ EVENTO PARA EDITAR POST ---------------------
 
-    /*const btnEdit = containerPostvoid.querySelectorAll(".btnEdit");
+    const btnEdit = containerPostvoid.querySelectorAll(".btnEdit");
     //console.log(btnEdit)
     btnDelete.forEach((element) => {
         element.addEventListener("click", async() => {
             await editPost(element.dataset.id);
         })
-    })*/
+    })
 
     return printComments;
 
