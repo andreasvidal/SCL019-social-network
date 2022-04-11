@@ -296,13 +296,13 @@ input[type="email" i] {
 /*ESTILOS LOGIN*/
 
 .inputUser,
-.passCont {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    padding-bottom: 10rem;
+.inputRegister {
+    display: grid;
+    grid-auto-rows: 8rem 6rem 0.1rem 1rem;
+    padding: 2rem;
+    margin-bottom: 10rem;
+    border-radius: 1.25rem;
+    justify-content: space-evenly;
 }
 
 
@@ -317,7 +317,6 @@ input[type="email" i] {
 }
 
 label {
-    display: flex;
     font-family: "Baloo 2", cursive;
     font-size: 1.5rem;
     padding-right: 1rem;

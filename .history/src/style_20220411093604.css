@@ -295,14 +295,20 @@ input[type="email" i] {
 
 /*ESTILOS LOGIN*/
 
-.inputUser,
+.inputUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
 .passCont {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
-    padding-bottom: 10rem;
 }
 
 
