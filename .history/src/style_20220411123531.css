@@ -137,6 +137,7 @@
 .userName {
     font-family: "Baloo 2", cursive;
     font-size: 1.5rem;
+    background-color: transparent;
     border-radius: 5rem;
     margin: 0 0 0 2rem;
     color: #362318;
@@ -151,7 +152,6 @@
 .userName {
     background-color: #dec6af56;
     margin-top: 1rem;
-    padding-left: 0.5rem;
 }
 
 .titlePost {
