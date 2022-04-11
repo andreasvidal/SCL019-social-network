@@ -11,7 +11,7 @@
     --brown-light-color: #dec6af;
     --white-brown-color: #f5f5f5;
     --alert-txt-color: #FF0000;
-    --opacity-bg-post: #69442d23;
+    --opacity-bg-post: rgba(105, 68, 45, 0.7);
     --background-gradiant-desktop: linear-gradient( 0deg, rgba(222, 198, 175, 0.8) 0%, rgba(105, 68, 45, 1) 70%);
     --background-gradient-mobil-color: linear-gradient( 90deg, rgba(222, 198, 175, 1) 80%, rgba(105, 68, 45, 1) 100%);
 }
@@ -119,8 +119,6 @@
     position: fixed;
     margin-top: 10%;
     margin-left: 2%;
-    background-color: var(--opacity-bg-post);
-    border-radius: 0 1rem 0 1rem;
 }
 
 
@@ -176,8 +174,9 @@ input[type="email" i] {
     background-color: var(--opacity-bg-post);
     padding: 0.3rem;
     margin-bottom: 0.5rem;
-    height: 7rem;
+    height: 10rem;
     width: 30rem;
+    margin-top: 1rem;
 }
 
 

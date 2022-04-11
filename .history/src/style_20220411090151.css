@@ -176,7 +176,7 @@ input[type="email" i] {
     background-color: var(--opacity-bg-post);
     padding: 0.3rem;
     margin-bottom: 0.5rem;
-    height: 7rem;
+    height: auto;
     width: 30rem;
 }
 
