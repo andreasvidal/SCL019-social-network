@@ -99,7 +99,7 @@ export const readDataPost = async() => {
 
 export const createUser = (inputUser, inputPassword) => {
     console.log("creando el usuario")
-    createUserWithEmailAndPassword(auth, inputUser, inputPassword)
+    createUserWithEmailAndPassword(auth, userName, inputUser, inputPassword)
         .then((userCredential) => {
             const user = userCredential.user;
             console.log(user)

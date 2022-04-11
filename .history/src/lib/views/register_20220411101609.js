@@ -38,7 +38,7 @@ export const register = () => {
     registerContainer.innerHTML = register
         //console.log(registerContainer);
 
-    //------------ EVENTO BTN REGISTRO  -----------------
+    //------------ EVENTO BTN REGISTRO -----------------
 
     const btnRegister = registerContainer.querySelector("#btnConf");
     console.log(btnRegister)

@@ -97,9 +97,9 @@ export const readDataPost = async() => {
 };
 //----------------------CREAR USUARIOS--------------------------
 
-export const createUser = (inputUser, inputPassword) => {
+export const createUser = (inputUser, inputPassword, userName) => {
     console.log("creando el usuario")
-    createUserWithEmailAndPassword(auth, inputUser, inputPassword)
+    createUserWithEmailAndPassword(auth, userName, inputUser, inputPassword)
         .then((userCredential) => {
             const user = userCredential.user;
             console.log(user)

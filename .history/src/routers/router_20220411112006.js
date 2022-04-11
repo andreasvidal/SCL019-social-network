@@ -2,7 +2,7 @@ import { home } from '../lib/views/home.js';
 import { login } from '../lib/views/login.js';
 import { Post } from '../lib/views/wall.js'
 import { register } from '../lib/views/register.js';
-import { error404 } from '../lib/views/error404.js';
+
 
 const templateviews = (hash) => {
 
@@ -24,7 +24,7 @@ const templateviews = (hash) => {
             containerRoot.appendChild(Post());
             break;
         default:
-            containerRoot.appendChild(error404());
+            containerRoot.appendChild(error404()) = "ERROR 404";
             break;
     }
 };
@@ -44,9 +44,6 @@ export const changeRouter = (hash) => {
     }
     if (hash === "#/post") {
         return templateviews(hash);
-    }
-    if (hash === "#/error404") {
-        return templateviews(hash)
     }
     return templateviews(hash);
 };

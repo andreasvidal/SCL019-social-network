@@ -121,9 +121,10 @@
 .formPost {
     display: grid;
     position: fixed;
-    margin: 15% 0 0 2%;
+    margin-top: 15%;
+    margin-left: 2%;
     backdrop-filter: blur(10rem);
-    border: 0.1rem solid var(--chocolate-color);
+    border: 0.1rem solid var(--white-brown-color);
     border-radius: 0 1rem 0 1rem;
 }
 

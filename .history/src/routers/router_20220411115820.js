@@ -23,7 +23,7 @@ const templateviews = (hash) => {
         case "#/post":
             containerRoot.appendChild(Post());
             break;
-        default:
+        case "#/error404":
             containerRoot.appendChild(error404());
             break;
     }

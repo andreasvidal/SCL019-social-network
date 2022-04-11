@@ -26,6 +26,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { printComments } from "../lib/views/post.js";
+import { async } from "regenerator-runtime";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -97,9 +98,9 @@ export const readDataPost = async() => {
 };
 //----------------------CREAR USUARIOS--------------------------
 
-export const createUser = (inputUser, inputPassword) => {
+export const createUser = async(inputUser, inputPassword, userName) => {
     console.log("creando el usuario")
-    createUserWithEmailAndPassword(auth, inputUser, inputPassword)
+    createUserWithEmailAndPassword(auth, userName, inputUser, inputPassword)
         .then((userCredential) => {
             const user = userCredential.user;
             console.log(user)

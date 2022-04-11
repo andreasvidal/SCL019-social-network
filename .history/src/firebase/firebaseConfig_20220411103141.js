@@ -26,6 +26,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { printComments } from "../lib/views/post.js";
+import { async } from "regenerator-runtime";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -57,7 +58,7 @@ export const user = auth.currentUser; // autentifica el usuario
 
 //------------------- GUARDAR DATOS POST ---------------------------
 //const uid = user.uid;
-export const createPost = async(inputTitle, textArea) => { // Add a new document with a generated id.
+export const createPost = (inputTitle, textArea) => { // Add a new document with a generated id.
     let userName;
     if (auth.currentUser.displayName === null) {
         const newName = auth.currentUser.email.split("@");
@@ -68,7 +69,7 @@ export const createPost = async(inputTitle, textArea) => { // Add a new document
     /*const name = auth.currentUser.displayName;
       const likes = [];
       const likesCounter = 0;*/
-    await addDoc(collection(db, "post"), {
+    addDoc(collection(db, "post"), {
         inputTitle,
         textArea,
         date: Date(Date.now()),
@@ -97,7 +98,7 @@ export const readDataPost = async() => {
 };
 //----------------------CREAR USUARIOS--------------------------
 
-export const createUser = (inputUser, inputPassword) => {
+export const createUser = async(inputUser, inputPassword) => {
     console.log("creando el usuario")
     createUserWithEmailAndPassword(auth, inputUser, inputPassword)
         .then((userCredential) => {

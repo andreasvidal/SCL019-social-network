@@ -38,7 +38,7 @@ export const register = () => {
     registerContainer.innerHTML = register
         //console.log(registerContainer);
 
-    //------------ EVENTO BTN REGISTRO  -----------------
+    //------------ EVENTO BTN REGISTRO -----------------
 
     const btnRegister = registerContainer.querySelector("#btnConf");
     console.log(btnRegister)
@@ -47,7 +47,7 @@ export const register = () => {
 
         const inputUser = registerContainer.querySelector("#inputEmail").value;
         const inputPassword = registerContainer.querySelector("#inputPassword").value;
-        createUser(inputUser, inputPassword)
+        await createUser(inputUser, inputPassword)
     });
     return registerContainer
 
